@@ -39,7 +39,7 @@ function App() {
             <thead>
               <tr>
                 <th>Task</th>
-                <th>Statuss</th>
+                <th>Status</th>
               </tr>
             </thead>
             <tbody>
