@@ -24,7 +24,7 @@ function App() {
             <option value="completed">Completed</option>
             <option value="incompleted">Incompleted</option>
           </select>
-          <button>Add Task</button>
+          <button>Add Task ok</button>
         </div>
 
         <div
@@ -39,7 +39,7 @@ function App() {
             <thead>
               <tr>
                 <th>Task</th>
-                <th>Status</th>
+                <th>Statuss</th>
               </tr>
             </thead>
             <tbody>
