@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Images</title>
+    <style>
+      body {
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- src = source -->
+     <!-- alt = image of ? -->
+    <img
+      src="https://images.pexels.com/photos/3532540/pexels-photo-3532540.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      alt=""
+      width="400px"
+    />
+    <img
+      src="./src/first-pic.jpg"
+      alt=""
+      width="400px"
+    />
+
+    <!-- set images on sizes -->
+    <picture>
+        <source width="400px" media="(min-width: 650px)" srcset="https://img.freepik.com/free-photo/woman-beach-with-her-baby-enjoying-sunset_52683-144131.jpg?size=626&ext=jpg" />
+        <source width="400px" media="(min-width: 450px)" srcset="https://thumbs.dreamstime.com/b/kids-portrait-romantic-children-couple-45822890.jpg" />
+        <img width="400px" src="./src/first-pic.jpg" alt="no image" />
+    </picture>
+  </body>
+</html>

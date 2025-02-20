@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tables</title>
+    <style>
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            color: rgb(46, 47, 47);
+        }
+        td, th{
+            border: 1px solid black;
+            padding: 10px;
+            
+        }
+        tr:nth-child(odd) {
+            background-color: rgb(221, 200, 241);
+        }
+    </style>
+  </head>
+  <body>
+    <!-- 
+    ~shortcuts~
+    table>th*3 
+    tr>td*3 
+    -->
+    <table>
+      <tr>
+        <th>Country</th>
+        <th>Country Code</th>
+        <th>Email</th>
+      </tr>
+      <tr>
+        <td>India</td>
+        <td>IN</td>
+        <td>india@yahoo.com</td>
+      </tr>
+      <tr>
+        <td>USA</td>
+        <td>US</td>
+        <td>usa@yahoo.com</td>
+      </tr>
+      <tr>
+        <td>UK</td>
+        <td>UK</td>
+        <td>uk@yahoo.com</td>
+      </tr>
+      <tr>
+        <td>Germany</td>
+        <td>DE</td>
+        <td>germany@yahoo.com</td>
+      </tr>
+    </table>
+    <br />
+    <table>
+        <tr>
+          <th>Country</th>
+          <th>Country Code</th>
+          <th>Email</th>
+        </tr>
+        <tr>
+          <td>India</td>
+          <td colspan="2">IN</td>
+        </tr>
+        <tr>
+          <td colspan="3">USA</td>
+        </tr>
+        <tr>
+          <td rowspan="2">UK</td>
+          <td>UK</td>
+          <td>uk@yahoo.com</td>
+        </tr>
+        <tr>
+          <td>UK</td>
+          <td>uk@yahoo.com</td>
+        </tr>
+      </table>
+  </body>
+</html>

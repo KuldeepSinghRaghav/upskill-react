@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* target class */
+      .red {
+        color: red;
+      }
+      /* target id */
+      #green {
+        color: rgb(129, 78, 224);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: center;
+        color: rgb(46, 47, 47);
+      }
+
+      td,
+      th {
+        border: 1px solid black;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="red">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem,
+      eveniet?
+    </p>
+    <!-- id should be unique -->
+    <p id="green">Lorem ipsum dolor sit amet</p>
+    <h1 class="red">Test 2</h1>
+    <hr />
+    <h3 style="text-align: center">iframe</h3>
+    <table>
+      <tr>
+        <th>video Source</th>
+        <th>Country</th>
+        <th>Url</th>
+        <th>Video</th>
+      </tr>
+      <tr>
+        <th>Youtube</th>
+        <td>India</td>
+        <td>
+          <a href="https://www.youtube.com/watch?v=-Q3PbAiO2AI" target="_blank"
+            >URL</a
+          >
+        </td>
+        <td>
+          <iframe
+            width="100"
+            height="100"
+            src="https://www.youtube.com/embed/-Q3PbAiO2AI"
+            title="402 Sq. Yard | Best Layout | Two Side Open | Builder floor in Gurgaon | Sabharwal Associates"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </td>
+      </tr>
+      <tr>
+        <th>Youtube</th>
+        <td>India</td>
+        <td>
+          <a href="https://www.youtube.com/watch?v=-Q3PbAiO2AI" target="_blank"
+            >URL</a
+          >
+        </td>
+        <td>
+          <iframe
+            width="100"
+            height="100"
+            src="https://www.youtube.com/embed/-Q3PbAiO2AI"
+            title="402 Sq. Yard | Best Layout | Two Side Open | Builder floor in Gurgaon | Sabharwal Associates"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
