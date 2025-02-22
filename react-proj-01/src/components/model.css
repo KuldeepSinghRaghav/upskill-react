@@ -1,0 +1,64 @@
+.model {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.905); /* Black w/ opacity */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Helvetica;
+}
+
+.model-content {
+  background-color: #fbf9f9;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #020202;
+  width: 500px; /* Could be more or less, depending on screen size */
+  height: 289px;
+  position: relative; /* To position close button */
+  border-radius: 2%;
+}
+
+.addTaskInput {
+  width: 440px;
+  height: 38px;
+  /* margin-top: 1px; */
+  border: solid 2px #6c63ff;
+  border-radius: 5px;
+}
+
+.cancel-button {
+  width: 85px;
+  height: 38px;
+  background-color: #f4f4f7;
+  border-radius: 5px;
+  border: solid 2px #6c63ff;
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  color: #6c63ff;
+}
+
+.addTaskButton {
+  width: 85px;
+  height: 38px;
+  background-color: #6c63ff;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 18px;
+  right: 18px;
+}
+
+.addTaskButton:hover{
+  background-color: #4b42ff;
+}
+
+.cancel-button:hover{
+  background-color: #4b42ff;
+}
+
