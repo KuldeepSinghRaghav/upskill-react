@@ -1,15 +1,13 @@
 * {
   padding: 0px;
   margin: 0px;
+  color: #000;
 }
-.completed {
+
+.complete {
   text-decoration: line-through;
 }
 
-/* .radioButton:hover {
-  padding: 12px;
-  background-color: red;
-} */
 .header {
   background-color: gray;
   color: aliceblue;
@@ -59,12 +57,10 @@ select {
 
 .mainBox {
   width: 950px;
-  /* height: 575px; */
-  /* background-color: rgb(253, 92, 92); */
   display: flex;
   justify-content: center;
   position: absolute;
-  top: 50%;
+  top: 47%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -72,7 +68,6 @@ select {
 .tableBox {
   width: 520px;
   height: 545px;
-  /* background-color: rgb(171, 171, 169); */
 }
 
 table {

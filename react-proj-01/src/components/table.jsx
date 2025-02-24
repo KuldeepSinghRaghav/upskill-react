@@ -2,19 +2,19 @@ import React from "react";
 import trash from "../assets/trash.svg";
 import edit from "../assets/edit.svg";
 
-function Table({ tasks, setTasks, selectValues, isButton = true }) {
+
+function Table({ tasks, setTasks, setIsModelOpen, setIsUpdate, setUpdateId, setUpdateTask}) {
   function DeleteById(idToDelete) {
     setTasks(tasks.filter((task) => task.id !== idToDelete));
   }
 
-  function UpdateText(idToUpdateText) {
-    const updatedTasks = tasks?.map((task) => {
-      if (task.id === idToUpdateText) {
-      }
-      return task;
-    });
-    setTasks(updatedTasks);
+  function UpdateText(task) {
+    setIsModelOpen(true);
+    setIsUpdate(true);
+    setUpdateId(task.id);
+    setUpdateTask(task.text);
   }
+
 
   function UpdateStatus(idToUpdateStatus) {
     const updatedTasks = tasks?.map((task) => {
@@ -34,12 +34,13 @@ function Table({ tasks, setTasks, selectValues, isButton = true }) {
         {tasks?.map((task) => (
           <tr
             key={task.id}
-            className={`${task.status === "complete" ? "completed" : ""}`}
+            className={`${task.status === "complete" ? "complete" : ""}`}
           >
             <td>
               <input
                 type="checkbox"
                 checked={task.status === "complete"}
+                disabled={task.status === "complete"}
                 onChange={() => UpdateStatus(task.id)}
               />
             </td>
@@ -57,7 +58,7 @@ function Table({ tasks, setTasks, selectValues, isButton = true }) {
             <td>
               <img
                 className="editButton"
-                onClick={() => UpdateText(task.id)}
+                onClick={() => UpdateText(task)}
                 src={edit}
                 alt=""
               />

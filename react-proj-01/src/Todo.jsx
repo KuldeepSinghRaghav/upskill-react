@@ -3,33 +3,33 @@ import Table from "./components/table";
 import vector from "./assets/Vector.svg";
 import sun from "./assets/sun.svg";
 import "./index.css";
-import Model from "./components/model";
+import Model from "./components/Model.jsx";
 
 function Todo() {
   const [tasks, setTasks] = useState([]);
   const [searchData, setSearchData] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
-  const [toShow, setToShow] = useState(false);
   const [colour, setColour] = useState("#F7F7F7");
   const [isModelOpen, setIsModelOpen] = useState(false);
-  const [selectValues, setSelectValues] = useState("all")
-
+  const [selectValues, setSelectValues] = useState("all");
+  const [isUpdate, setIsUpdate] = useState(false);
+  const [updateId, setUpdateId] = useState(null);
+  const [updateTask, setUpdateTask] = useState("");
 
   useEffect(() => {
-    const filteredTasks = tasks.filter((task) =>
-      task?.text?.includes(searchQuery) && task?.status === selectValues
-    );
-    if (searchQuery === "") {
-      setSearchData([]);
-      setToShow(false);
-    } else if (filteredTasks.length === 0) {
-      setSearchData([]);
-      setToShow(true);
-    } else {
-      setSearchData(filteredTasks);
-      setToShow(true);
-    }
-  }, [searchQuery]);
+    const filteredTasks = tasks.filter((task) => {
+      const matchesSearch = task?.text
+        ?.toLowerCase()
+        .includes(searchQuery.toLowerCase());
+
+      const matchesStatus =
+        selectValues === "all" || task?.status === selectValues;
+
+      return matchesSearch && matchesStatus;
+    });
+
+    setSearchData(filteredTasks);
+  }, [searchQuery, selectValues, tasks]);
 
   function openModel() {
     setIsModelOpen(true);
@@ -46,15 +46,15 @@ function Todo() {
           <h1
             style={{
               textAlign: "center",
-              textOrientation: "vertical",
+              textOrientation: "Helvetica",
               with: 122,
-              height: 29,
+              height: 29,      
               color: colour === "#F7F7F7" ? "#1E1E1E" : "#F7F7F7",
             }}
           >
             TODO LIST
           </h1>
-          <div className="topBox">
+          <div className="topBox" style={{ backgroundColor: colour }}>
             <input
               className="searchInput"
               type="text"
@@ -62,60 +62,66 @@ function Todo() {
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder=" Search note..."
             />
-            <select>
-              <option onClick={(e) => setSelectValues(e.target.value)} value="all">ALL</option>
-              <option onClick={(e) => setSelectValues(e.target.value)} value="complete">Completed</option>
-              <option onClick={(e) => setSelectValues(e.target.value)} value="incompleted">Incompleted</option>
+            <select
+              value={selectValues}
+              onChange={(e) => setSelectValues(e.target.value)}
+            >
+              <option value="all">ALL</option>
+              <option value="complete">Completed</option>
+              <option value="incompleted">Incompleted</option>
             </select>
             {colour === "#F7F7F7" && (
               <>
-                <img className="todoButtons" onClick={() => setColour("#1E1E1E")} src={vector} alt="" />
+                <img
+                  className="todoButtons"
+                  onClick={() => setColour("#1E1E1E")}
+                  src={vector}
+                  alt=""
+                />
               </>
             )}
             {colour === "#1E1E1E" && (
-              <img className="todoButtons" onClick={() => setColour("#F7F7F7")} src={sun} alt="" />
+              <img
+                className="todoButtons"
+                onClick={() => setColour("#F7F7F7")}
+                src={sun}
+                alt=""
+              />
             )}
           </div>
         </div>
 
-        <div className="mainBox">
-          <div className="tableBox">
-            {toShow === false && <Table tasks={tasks} setTasks={setTasks} selectValues={selectValues} />}
-            {toShow === true && (
-              <Table tasks={searchData} setTasks={setTasks} selectValues={selectValues} isButton={false} />
-            )}
+        <div className="mainBox" style={{ backgroundColor: colour }}>
+          <div
+            className="tableBox"
+            style={{ color: colour === "#F7F7F7" ? "#1E1E1E" : "#F7F7F7" }}
+          >
+            <Table
+              tasks={searchQuery || selectValues !== "all" ? searchData : tasks}
+              setTasks={setTasks}
+              selectValues={selectValues}
+              setIsModelOpen={setIsModelOpen}
+              setIsUpdate={setIsUpdate}
+              setUpdateId={setUpdateId}
+              setUpdateTask={setUpdateTask}
+            />
           </div>
-          <button className="addButton" onClick={openModel}>+</button>
+          <button className="addButton" onClick={openModel}>
+            +
+          </button>
         </div>
       </div>
-
-      {/* start */}
-
-      {/* <h1>Todo Tasks:</h1> */}
-      {/* {toShow === false && <Table tasks={tasks} setTasks={setTasks} />}
-      {toShow === true && (
-        <Table tasks={searchData} setTasks={setTasks} isButton={false} />
-      )} */}
-      {/* <input
-        type="text"
-        id="addNewTask"
-        placeholder="add new tasks"
-        required
-        minLength={4}
-      ></input> */}
-      {/* <br />
-      <input
-        type="text"
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-        placeholder="Search tasks"
-      />
-      <br /> */}
-      {/* <button onClick={AddNewTasks}>Add Task</button> */}
-      {/* <br /> */}
-      {/* <button onClick={() => setTasks([])}>Clear Tasks</button> */}
-      {/* end */}
-      {isModelOpen && <Model tasks={tasks} setTasks={setTasks} onClose={closeModel} />}
+      {isModelOpen && (
+        <Model
+          tasks={tasks}
+          setTasks={setTasks}
+          onClose={closeModel}
+          isEdit={isUpdate}
+          setIsUpdate={setIsUpdate}
+          updateId={updateId}
+          updateTask={updateTask}
+        />
+      )}
     </>
   );
 }

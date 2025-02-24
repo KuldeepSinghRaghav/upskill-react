@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selectors</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: rgb(109, 108, 108);
+        }
+        /* h1{
+            background-color: brown;
+            color: white;
+        } */
+
+        #bg-green{
+            background-color: orange;
+        }
+
+        .bg-orange{
+            background-color: green;
+        }
+
+        a[target="_blank"] {
+            background-color: red;
+        }
+
+        h1, h2, h3 {
+            background-color: rgb(197, 118, 15);
+        }
+
+        ul li {
+            background-color: rgb(197, 118, 15);
+        }
+
+        header > a {
+            background-color: rgb(8, 239, 70);
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <a href="http://google.com" rel="noopener noreferrer">Google</a>
+    </header>
+    <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h1>
+    <h2 class="bg-orange">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h2>
+    <h3  id="bg-green"  class="bg-orange">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
+    <a href="http://google.com" target="_blank" rel="noopener noreferrer">Google</a>
+    <a href="http://google.com" target="_parent" rel="noopener noreferrer">Google</a>
+    <ul>
+        <li>w</li>
+        <li>s</li>
+        <li>x</li>
+    </ul>
+
+    
+</body>
+</html>
