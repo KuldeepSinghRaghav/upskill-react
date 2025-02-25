@@ -1,20 +1,16 @@
 import React from "react";
-import trash from "../assets/trash.svg";
-import edit from "../assets/edit.svg";
+import trash from "../../assets/trash.svg";
+import edit from "../../assets/edit.svg";
 
-
-function Table({ tasks, setTasks, setIsModelOpen, setIsUpdate, setUpdateId, setUpdateTask}) {
+function Table({ tasks, setTasks, setIsModelOpen, setUpdateId }) {
   function DeleteById(idToDelete) {
     setTasks(tasks.filter((task) => task.id !== idToDelete));
   }
 
   function UpdateText(task) {
     setIsModelOpen(true);
-    setIsUpdate(true);
     setUpdateId(task.id);
-    setUpdateTask(task.text);
   }
-
 
   function UpdateStatus(idToUpdateStatus) {
     const updatedTasks = tasks?.map((task) => {

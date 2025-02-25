@@ -1,20 +1,21 @@
-import react, { useState, useEffect } from "react";
-import Table from "./components/table";
+import React, { useState, useEffect } from "react";
+import "./index.css";
 import vector from "./assets/Vector.svg";
 import sun from "./assets/sun.svg";
-import "./index.css";
-import Model from "./components/Model.jsx";
+import Table from "./components/table/Table.jsx";
+import Model from "./components/model/Model.jsx";
+import Select from "./components/select/Select.jsx";
+import Button from "./components/button/Button.jsx";
+import ClickableImg from "./components/button/ClickableImg.jsx";
 
 function Todo() {
   const [tasks, setTasks] = useState([]);
   const [searchData, setSearchData] = useState([]);
+  const [selectValues, setSelectValues] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [colour, setColour] = useState("#F7F7F7");
   const [isModelOpen, setIsModelOpen] = useState(false);
-  const [selectValues, setSelectValues] = useState("all");
-  const [isUpdate, setIsUpdate] = useState(false);
   const [updateId, setUpdateId] = useState(null);
-  const [updateTask, setUpdateTask] = useState("");
 
   useEffect(() => {
     const filteredTasks = tasks.filter((task) => {
@@ -31,10 +32,6 @@ function Todo() {
     setSearchData(filteredTasks);
   }, [searchQuery, selectValues, tasks]);
 
-  function openModel() {
-    setIsModelOpen(true);
-  }
-
   function closeModel() {
     setIsModelOpen(false);
   }
@@ -46,9 +43,11 @@ function Todo() {
           <h1
             style={{
               textAlign: "center",
-              textOrientation: "Helvetica",
+              fontFamily: "Helvetica",
+              paddingTop: "1px",
+              paddingBottom: "1px",
               with: 122,
-              height: 29,      
+              height: 29,
               color: colour === "#F7F7F7" ? "#1E1E1E" : "#F7F7F7",
             }}
           >
@@ -62,53 +61,45 @@ function Todo() {
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder=" Search note..."
             />
-            <select
-              value={selectValues}
-              onChange={(e) => setSelectValues(e.target.value)}
-            >
-              <option value="all">ALL</option>
-              <option value="complete">Completed</option>
-              <option value="incompleted">Incompleted</option>
-            </select>
+            <Select
+              selectValues={selectValues}
+              setSelectValues={setSelectValues}
+            />
             {colour === "#F7F7F7" && (
-              <>
-                <img
-                  className="todoButtons"
-                  onClick={() => setColour("#1E1E1E")}
-                  src={vector}
-                  alt=""
-                />
-              </>
+              <ClickableImg
+                className="todoButtons"
+                src={vector}
+                onClick={() => setColour("#1E1E1E")}
+              />
             )}
             {colour === "#1E1E1E" && (
-              <img
+              <ClickableImg
                 className="todoButtons"
-                onClick={() => setColour("#F7F7F7")}
                 src={sun}
-                alt=""
+                onClick={() => setColour("#F7F7F7")}
               />
             )}
           </div>
         </div>
 
-        <div className="mainBox" style={{ backgroundColor: colour }}>
-          <div
-            className="tableBox"
-            style={{ color: colour === "#F7F7F7" ? "#1E1E1E" : "#F7F7F7" }}
-          >
-            <Table
-              tasks={searchQuery || selectValues !== "all" ? searchData : tasks}
-              setTasks={setTasks}
-              selectValues={selectValues}
-              setIsModelOpen={setIsModelOpen}
-              setIsUpdate={setIsUpdate}
-              setUpdateId={setUpdateId}
-              setUpdateTask={setUpdateTask}
-            />
+        <div style={{ backgroundColor: colour, width: "100%" }}>
+          <div className="mainBox">
+            <div
+              className="tableBox"
+              style={{ color: colour === "#F7F7F7" ? "#1E1E1E" : "#F7F7F7" }}
+            >
+              <Table
+                tasks={
+                  searchQuery || selectValues !== "all" ? searchData : tasks
+                }
+                setTasks={setTasks}
+                selectValues={selectValues}
+                setIsModelOpen={setIsModelOpen}
+                setUpdateId={setUpdateId}
+              />
+            </div>
+            <Button setIsModelOpen={setIsModelOpen} />
           </div>
-          <button className="addButton" onClick={openModel}>
-            +
-          </button>
         </div>
       </div>
       {isModelOpen && (
@@ -116,10 +107,8 @@ function Todo() {
           tasks={tasks}
           setTasks={setTasks}
           onClose={closeModel}
-          isEdit={isUpdate}
-          setIsUpdate={setIsUpdate}
           updateId={updateId}
-          updateTask={updateTask}
+          setUpdateId={setUpdateId}
         />
       )}
     </>

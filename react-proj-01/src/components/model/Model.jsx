@@ -1,33 +1,27 @@
 import React, { useState, useEffect } from "react";
 import "./model.css";
 
-function Model({
-  tasks,
-  setTasks,
-  onClose,
-  isEdit,
-  setIsUpdate,
-  updateId,
-  updateTask,
-}) {
+function Model({ tasks, setTasks, onClose, updateId, setUpdateId }) {
   const [isOpen, setIsOpen] = useState(true);
   const [taskText, setTaskText] = useState("");
 
   useEffect(() => {
-    if (isEdit && updateTask) {
-      setTaskText(updateTask);
+    if (updateId) {
+      const task = tasks.find((task) => {
+        return task?.id === updateId;
+      });
+      setTaskText(task?.text);
     }
-  }, [isEdit, updateTask]);
+  }, [updateId]);
 
   const closeModel = () => {
     setIsOpen(false);
     onClose();
-    setIsUpdate(false);
+    setUpdateId(null);
   };
 
-  let title = isEdit ? "Edit Note" : "New Note";
-  let clickButton = isEdit ? "UPDATE" : "APPLY";
-  let contant = isEdit ? updateTask : null;
+  let title = updateId ? "Edit Note" : "New Note";
+  let clickButton = updateId ? "UPDATE" : "APPLY";
 
   function handleTaskChange(e) {
     setTaskText(e.target.value);
@@ -39,7 +33,7 @@ function Model({
       return;
     }
 
-    if (isEdit) {
+    if (updateId) {
       // Update existing task
       setTasks(
         tasks.map((task) =>
