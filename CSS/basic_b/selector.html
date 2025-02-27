@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Selectors</title>
+    <!-- NOTE: 
+     The ID selector should be used only once per file, 
+     whereas the class selector can be used multiple times in a file. 
+    -->
+    <style>
+      /* on tags */
+      h1 {
+        color: red;
+      }
+      /* on class name */
+      .class-selector {
+        color: blue;
+      }
+      /* on id */
+      #id-selector {
+        color: green;
+      }
+      /* style a span inside h1 tag */
+      /* h1 is parent here and span is it's chlid. */
+      h1 span {
+        color: rgb(88, 88, 39);
+        font-size: 30px;
+      }
+       
+      .second-class-selector span {
+        color: rgb(84, 241, 236);
+        font-size: 30px;
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <h1>By Tag name</h1>
+    <h1 class="class-selector">By className name</h1>
+    <h1 id="id-selector">By id name</h1>
+    <h1><span>Descendant Selector</span></h1>
+    <p class="second-class-selector">Lorem ipsum dolor sit amet <span>consectetur adipisicing elit.</span> Accusantium, hic?</p>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlexWrap&Flow</title>
+    <style>
+        body {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 30px;
+        }
+      #container {
+        background: white;
+        border: 2px solid black;
+        width: 300px;
+        padding: 10px;
+        margin: 50px;
+        display: flex;
+        /* flex-direction: row; */
+        /* flex-wrap: nowrap(default), wrap, wrap-reverse; */
+        /* flex-wrap:wrap; */
+        /* shorthand of flex-direction & flex-wrap */
+        flex-flow: row wrap;
+      }
+      .item1 {
+        background-color: rgb(251, 129, 30);
+      }
+      .item2 {
+        background-color: rgb(250, 48, 48);
+      }
+      .item3 {
+        background-color: forestgreen;
+      }
+      .item4 {
+        background-color: rgb(19, 152, 247);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div class="item1">One</div>
+      <div class="item2">Two</div>
+      <div class="item3">Three</div>
+      <div class="item4">Four</div>
+      <div class="item1">Five</div>
+      <div class="item2">Six</div>
+      <div class="item3">Seven</div>
+      <div class="item4">Eight</div>
+    </div>
+  </body>
+</html>

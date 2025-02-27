@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Align-Item</title>
+    <!-- Used for Vertical Alignment -->
+    <style>
+      body {
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      }
+      #container {
+        border: 2px solid black;
+        width: 600px;
+        /* height as align-items works Vertically */
+        height: 400px;
+        padding: 0px;
+        margin: 50px auto;
+        display: flex;
+        /* align-items: strach;(default) */
+        /* align-items: flex-start; flex-start/flex-end */
+        align-items: center;
+
+      }
+      .items {
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        padding: 10px;
+        margin: 5px;
+      }
+      .item1 {
+        background-color: rgb(255, 112, 41);
+      }
+      .item2 {
+        background-color: rgb(221, 249, 64);
+      }
+      .item3 {
+        background-color: rgb(102, 239, 102);
+      }
+      .item4 {
+        background-color: rgb(250, 140, 249);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div class="items item1">One</div>
+      <div class="items item2">Two</div>
+      <div class="items item3">Three</div>
+      <div class="items item4">Four</div>
+    </div>
+  </body>
+</html>
