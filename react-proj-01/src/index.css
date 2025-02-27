@@ -46,6 +46,11 @@ select {
   margin: 18px;
 }
 
+select:hover {
+  background-color: #4b42ff;
+}
+
+
 .todoButtons {
   width: 38;
   height: 38;
@@ -129,6 +134,12 @@ td {
   color: white;   
   font-size: 24px;
 }
+
+/* .deleteButton:hover {
+  background-color: #f60c0c;
+} */
+
+
 
 /* .deleteButton{
   display: flex; */

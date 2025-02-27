@@ -82,24 +82,23 @@ function Todo() {
           </div>
         </div>
 
-        <div style={{ backgroundColor: colour, width: "100%" }}>
-          <div className="mainBox">
-            <div
-              className="tableBox"
-              style={{ color: colour === "#F7F7F7" ? "#1E1E1E" : "#F7F7F7" }}
-            >
-              <Table
-                tasks={
-                  searchQuery || selectValues !== "all" ? searchData : tasks
-                }
-                setTasks={setTasks}
-                selectValues={selectValues}
-                setIsModelOpen={setIsModelOpen}
-                setUpdateId={setUpdateId}
-              />
-            </div>
-            <Button setIsModelOpen={setIsModelOpen} />
+        <div
+          style={{ backgroundColor: colour, width: "100%", overflow: "auto" }}
+          className="mainBox"
+        >
+          <div
+            className="tableBox"
+            style={{ color: colour === "#F7F7F7" ? "#1E1E1E" : "#F7F7F7" }}
+          >
+            <Table
+              tasks={searchQuery || selectValues !== "all" ? searchData : tasks}
+              setTasks={setTasks}
+              selectValues={selectValues}
+              setIsModelOpen={setIsModelOpen}
+              setUpdateId={setUpdateId}
+            />
           </div>
+          <Button setIsModelOpen={setIsModelOpen} />
         </div>
       </div>
       {isModelOpen && (
