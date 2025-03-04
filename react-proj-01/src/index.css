@@ -6,6 +6,7 @@
 
 .complete {
   text-decoration: line-through;
+  color: #585858;
 }
 
 .header {
@@ -34,8 +35,8 @@
   justify-content: space-between;
   display: flex;
   flex-direction: row;
-  width: 750;
-  height: 135;
+  width: 750px;
+  height: 135px;
 }
 
 select {
@@ -64,10 +65,6 @@ select:hover {
   width: 950px;
   display: flex;
   justify-content: center;
-  /* position: absolute; */
-  /* top: 47%; */
-  /* left: 50%; */
-  /* transform: translate(-50%, -50%); */
 }
 
 .tableBox {
@@ -84,7 +81,7 @@ table {
 th, td {
   padding: 10px;
   margin: 0px;
-  border-bottom: solid 0.5px #6c63ff;
+  /* border-bottom: solid 0.5px #6c63ff; */
   text-align: left;
 }
 
@@ -135,17 +132,17 @@ td {
   font-size: 24px;
 }
 
-/* .deleteButton:hover {
-  background-color: #f60c0c;
-} */
+.deleteButton:hover {
+cursor: pointer;
+transform: scale(1.5);
+}
 
+.editButton:hover {
+cursor: pointer;
+transform: scale(1.5);
+}
 
-
-/* .deleteButton{
-  display: flex; */
-/* justify-content:flex-end; */
-/* align-items: right;
-  background-color: #6C63FF;
-
-  
-} */
+.checkbox:hover {
+  cursor: pointer;
+  transform: scale(1.5);
+}

@@ -83,7 +83,7 @@ function Todo() {
         </div>
 
         <div
-          style={{ backgroundColor: colour, width: "100%", overflow: "auto" }}
+          style={{ backgroundColor: colour,height: "88vh", width: "100%", overflow: "auto" }}
           className="mainBox"
         >
           <div
@@ -96,6 +96,7 @@ function Todo() {
               selectValues={selectValues}
               setIsModelOpen={setIsModelOpen}
               setUpdateId={setUpdateId}
+              colour={colour}
             />
           </div>
           <Button setIsModelOpen={setIsModelOpen} />
