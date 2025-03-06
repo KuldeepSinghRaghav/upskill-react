@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useMemo} from "react";
 import trash from "../../assets/trash.svg";
 import edit from "../../assets/edit.svg";
 import detective from "../../assets/detective.svg";

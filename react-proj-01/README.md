@@ -32,4 +32,7 @@ During the first week, I focused on:
 ## Week 2 Learning
 
 During the second week, I focused on:
-test..
+- created styled components button on model.
+- use hook useMemo on search data for better optimization
+- implememnt the Style implementation for beeter ui.
+- also used hooks the Fragment.

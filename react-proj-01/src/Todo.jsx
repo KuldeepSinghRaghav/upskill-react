@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import "./index.css";
 import vector from "./assets/Vector.svg";
 import sun from "./assets/sun.svg";
@@ -9,6 +9,7 @@ import Button from "./components/button/Button.jsx";
 import ClickableImg from "./components/button/ClickableImg.jsx";
 
 function Todo() {
+  // Hooks Implementation.
   const [tasks, setTasks] = useState([]);
   const [searchData, setSearchData] = useState([]);
   const [selectValues, setSelectValues] = useState("all");
@@ -17,8 +18,9 @@ function Todo() {
   const [isModelOpen, setIsModelOpen] = useState(false);
   const [updateId, setUpdateId] = useState(null);
 
-  useEffect(() => {
-    const filteredTasks = tasks.filter((task) => {
+  // useMemo hook..
+  const filteredTasks = useMemo(() => {
+    return tasks.filter((task) => {
       const matchesSearch = task?.text
         ?.toLowerCase()
         .includes(searchQuery.toLowerCase());
@@ -28,18 +30,22 @@ function Todo() {
 
       return matchesSearch && matchesStatus;
     });
-
-    setSearchData(filteredTasks);
   }, [searchQuery, selectValues, tasks]);
+
+  useEffect(() => {
+    setSearchData(filteredTasks);
+  }, [filteredTasks]);
 
   function closeModel() {
     setIsModelOpen(false);
   }
 
   return (
+    // Fragments
     <>
       <div>
         <div className="todoHeader" style={{ backgroundColor: colour }}>
+          {/* inline Style implementation  */}
           <h1
             style={{
               textAlign: "center",
@@ -83,7 +89,12 @@ function Todo() {
         </div>
 
         <div
-          style={{ backgroundColor: colour,height: "88vh", width: "100%", overflow: "auto" }}
+          style={{
+            backgroundColor: colour,
+            height: "88vh",
+            width: "100%",
+            overflow: "auto",
+          }}
           className="mainBox"
         >
           <div
