@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useRef } from "react";
 import "./index.css";
 import vector from "./assets/Vector.svg";
 import sun from "./assets/sun.svg";
@@ -9,6 +9,11 @@ import Button from "./components/button/Button.jsx";
 import ClickableImg from "./components/button/ClickableImg.jsx";
 
 function Todo() {
+  const inputRef = useRef(null);
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
   // Hooks Implementation.
   const [tasks, setTasks] = useState([]);
   const [searchData, setSearchData] = useState([]);
@@ -66,6 +71,7 @@ function Todo() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder=" Search note..."
+              ref={inputRef}
             />
             <Select
               selectValues={selectValues}
