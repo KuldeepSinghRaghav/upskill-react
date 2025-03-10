@@ -1,6 +1,24 @@
 import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 import "./model.css";
 
+// use of styled components..
+const Button = styled.button`
+  width: 85px;
+  height: 38px;
+  background-color: #f4f4f7;
+  border-radius: 5px;
+  border: solid 2px #6c63ff;
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  color: #6c63ff;
+
+  &:hover {
+    background-color: #4b42ff;
+    color: #fbf9f9;
+  }
+`;
 function Model({ tasks, setTasks, onClose, updateId, setUpdateId }) {
   const [isOpen, setIsOpen] = useState(true);
   const [taskText, setTaskText] = useState("");
@@ -74,9 +92,7 @@ function Model({ tasks, setTasks, onClose, updateId, setUpdateId }) {
             <button className="addTaskButton" onClick={handleTaskSubmit}>
               {clickButton}
             </button>
-            <button className="cancel-button" onClick={closeModel}>
-              CANCEL
-            </button>
+            <Button onClick={closeModel}>CANCEL</Button>
           </div>
         </div>
       )}

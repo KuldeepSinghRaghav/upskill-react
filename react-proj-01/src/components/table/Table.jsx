@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import trash from "../../assets/trash.svg";
 import edit from "../../assets/edit.svg";
 import detective from "../../assets/detective.svg";
@@ -26,16 +26,29 @@ function Table({ tasks, setTasks, setIsModelOpen, setUpdateId, colour }) {
     setTasks(updatedTasks);
   }
   return (
-    <div>
-      <table className="tableContent">
+    <>
+      <div>
         {tasks.length === 0 ? (
           <div>
-            <img src={detective} alt="" style={{ width: "221px", height: "174px", display: "flex", justifyContent: "center", marginLeft: "150px" }} />
-            <h4 style={{textAlign:"center"}}>Empty..</h4>
+            <img
+              src={detective}
+              alt=""
+              style={{
+                width: "221px",
+                height: "174px",
+                display: "flex",
+                justifyContent: "center",
+                marginLeft: "150px",
+              }}
+            />
+            <h4 style={{ textAlign: "center" }}>Empty..</h4>
           </div>
-        ) : (
-          <>
+        ) : null}
+      </div>
+      <table className="tableContent">
+        <tbody>
           {tasks?.map((task) => (
+            // Add key key here using a unique task property.
             <tr
               key={task.id}
               className={`${task.status === "complete" ? "complete" : ""}`}
@@ -99,10 +112,9 @@ function Table({ tasks, setTasks, setIsModelOpen, setUpdateId, colour }) {
               </td>
             </tr>
           ))}
-          </>
-        )}
+        </tbody>
       </table>
-    </div>
+    </>
   );
 }
 

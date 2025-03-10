@@ -31,18 +31,6 @@
   border-radius: 5px;
 }
 
-.cancel-button {
-  width: 85px;
-  height: 38px;
-  background-color: #f4f4f7;
-  border-radius: 5px;
-  border: solid 2px #6c63ff;
-  position: absolute;
-  bottom: 18px;
-  left: 18px;
-  color: #6c63ff;
-}
-
 .addTaskButton {
   width: 85px;
   height: 38px;
@@ -57,9 +45,4 @@
 
 .addTaskButton:hover {
   background-color: #4b42ff;
-}
-
-.cancel-button:hover {
-  background-color: #4b42ff;
-  color: #fbf9f9;
 }
