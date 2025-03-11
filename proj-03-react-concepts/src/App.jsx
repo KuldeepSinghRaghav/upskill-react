@@ -4,6 +4,12 @@ import ControlledComponent from "./components/ControlledComponent";
 import UncontrolledComponent from "./components/UncontrolledComponent";
 import Counter from "./components/Counter";
 import ErrorBoundary from "./Errors/ErrorBoundary";
+import Person1 from "./components/Person1";
+import Person2 from "./components/Person2";
+import HighOrderComponent from "./components/HighOrderComponent";
+
+
+
 
 // import component here for lazy loading.
 const LazyLoadingComp = React.lazy(() => import("./components/LazyLoading"));
@@ -16,6 +22,10 @@ const LazyLoadingComp = React.lazy(() => import("./components/LazyLoading"));
 // 5- Error Boundary. ( handling error without affecting other components)
 // 6- HOC ( High Order Comopnent)
 
+// Wrap Person1 and Person2 with HighOrderComponent
+const Person1Enhanced = HighOrderComponent(Person1);
+const Person2Enhanced = HighOrderComponent(Person2);
+
 function App() {
   return (
     <>
@@ -24,6 +34,10 @@ function App() {
 
       <h1 style={{ textAlign: "center" }}>UncontrolledComponent</h1>
       <UncontrolledComponent />
+
+      <h1 style={{ textAlign: "center" }}>HOC</h1>
+      <Person1Enhanced />
+      <Person2Enhanced />
 
       <h1 style={{ textAlign: "center" }}>Lazy Loading In react</h1>
       <ErrorBoundary>
