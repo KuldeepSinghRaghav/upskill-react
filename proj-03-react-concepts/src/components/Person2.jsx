@@ -3,7 +3,7 @@ import HighOrderComponent from './HighOrderComponent';
 
 function Person2({ handlePrice, price }) {
     return (
-        <div>
+        <div className="main">
           <h1>Sam is Offering {price}</h1>
           <button onClick={handlePrice}>Offer Price</button>
         </div>

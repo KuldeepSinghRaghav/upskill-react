@@ -29,17 +29,17 @@ const Person2Enhanced = HighOrderComponent(Person2);
 function App() {
   return (
     <>
-      <h1 style={{ textAlign: "center" }}>ControlledComponent</h1>
+      <h1 style={{ textAlign: "center", color: "white", backgroundColor: "gray" }}>ControlledComponent</h1>
       <ControlledComponent />
 
-      <h1 style={{ textAlign: "center" }}>UncontrolledComponent</h1>
+      <h1 style={{ textAlign: "center", color: "white", backgroundColor: "gray" }}>UncontrolledComponent</h1>
       <UncontrolledComponent />
 
-      <h1 style={{ textAlign: "center" }}>HOC</h1>
+      <h1 style={{ textAlign: "center", color: "white", backgroundColor: "gray" }}>HOC</h1>
       <Person1Enhanced />
       <Person2Enhanced />
 
-      <h1 style={{ textAlign: "center" }}>Lazy Loading In react</h1>
+      <h1 style={{ textAlign: "center", color: "white", backgroundColor: "gray" }}>Lazy Loading In react</h1>
       <ErrorBoundary>
         <Counter />
       </ErrorBoundary>
