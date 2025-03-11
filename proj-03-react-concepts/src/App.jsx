@@ -40,13 +40,14 @@ function App() {
       <Person2Enhanced />
 
       <h1 style={{ textAlign: "center", color: "white", backgroundColor: "gray" }}>Lazy Loading In react</h1>
-      <ErrorBoundary>
-        <Counter />
-      </ErrorBoundary>
-      
       <Suspense fallback={<div className="main"><b>Loading Data...</b></div>}>
         <LazyLoadingComp />
       </Suspense>
+
+      <h1 style={{ textAlign: "center", color: "white", backgroundColor: "gray" }}>Error Boundries</h1>
+      <ErrorBoundary>
+        <Counter />
+      </ErrorBoundary>
     </>
   );
 }
