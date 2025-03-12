@@ -21,6 +21,7 @@ const LazyLoadingComp = React.lazy(() => import("./components/LazyLoading"));
 // 4- Lazy Loading and Suspense.
 // 5- Error Boundary. ( handling error without affecting other components)
 // 6- HOC ( High Order Comopnent)
+// 7- Pure Component.
 
 // Wrap Person1 and Person2 with HighOrderComponent
 const Person1Enhanced = HighOrderComponent(Person1);

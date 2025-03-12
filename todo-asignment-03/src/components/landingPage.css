@@ -1,0 +1,92 @@
+.Landing-header {
+  width: 1165px;
+  height: 45px;
+  display: flex;
+  flex-direction: raw;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 1px;
+  padding-right: 1px;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+}
+
+.left-side {
+  display: flex;
+  align-items: center;
+  width: 41px;
+  height: 41px;
+  font-weight: bold;
+}
+
+.icon {
+  width: 41px;
+  height: 41px;
+  padding-right: 4px;
+}
+
+.main-contant {
+  width: 1363px;
+  height: 1072px;
+  margin-top: 73px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 36px;
+  font-weight: bold;
+  width: 223px;
+  height: 58px;
+  background-color: rgba(255, 79, 90, 1);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  width: 571px;
+  height: 116px;
+  text-align: center;
+}
+
+.btnB {
+  font-size: 36px;
+  font-weight: bold;
+  width: 232px;
+  height: 58px;
+  background-color: rgba(255, 79, 90, 1);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  margin-top: 40px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+h4{
+  color: rgba(255, 79, 90, 1);
+}
+
+.footer {
+  width: 1440px;
+  height: 258px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+}
