@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from './header'
+import Header from './Header'
 import Contant from './Contant'
 import Footer from './Footer'
 

@@ -15,11 +15,14 @@
 }
 
 .left-side {
-  display: flex;
-  align-items: center;
+  display: flex; /* Enable flexbox */
+  align-items: center; /* Vertically align items in the center */
+  flex-direction: row; /* Ensure items are in a row */
+  white-space: nowrap; /* Prevent text from wrapping */
   width: 41px;
   height: 41px;
   font-weight: bold;
+  padding: 4px;
 }
 
 .icon {
