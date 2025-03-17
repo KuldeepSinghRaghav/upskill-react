@@ -1,36 +1,70 @@
 import React, { useState } from "react";
 import icon from "../../public/icon.svg";
 import iconB from "../../public/calendar.svg";
-import Edit from "../../public/edit2.svg";
-import Dots from "../../public/dots.svg";
 import AddTask from "../../public/add.svg";
+import Delete from "../../public/delete.svg";
+import { Suspense } from "react";
+import TodoTextBox from "../components/TodoTextBox";
 
+const LazyLoadingComp = React.lazy(() => import("../components/TodoList"));
 function Todo() {
   const [tasks, setTasks] = useState([]);
   const [taskText, setTaskText] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
-
   const [showAddTask, setShowAddTask] = useState(false);
+  const [showPopupBorder, setShowPopupBorder] = useState(false);
+  const [updatedId, setUpdateId] = useState();
 
   function handelCancel() {
     setShowAddTask(false);
+    setUpdateId("");
   }
-  function handleAddTaskClick() {
-    setShowAddTask(true);
-    setTaskText("");
-    setTaskDescription("");
+
+  function handleAddTaskClick(tasks) {
+    if (tasks) {
+      setShowAddTask(!showAddTask);
+      setUpdateId(tasks.id);
+      setTaskText(tasks.title);
+      setTaskDescription(tasks.description);
+    } else {
+      setShowAddTask(true);
+      setUpdateId("");
+      setTaskText("");
+      setTaskDescription("");
+    }
   }
+
+  function handleRemoveTask() {
+    setShowPopupBorder(!showPopupBorder);
+    setTasks(tasks.filter((task) => task.id !== updatedId));
+  }
+
+  function handleDeleteButton(task) {
+    setShowPopupBorder(!showPopupBorder);
+    setUpdateId(task.id);
+  }
+
   function handelAddTask() {
     setShowAddTask(false);
-    setTasks([
-      ...tasks,
-      {
-        id: Date.now(),
-        title: taskText,
-        description: taskDescription,
-        status: "incompleted",
-      },
-    ]);
+    if (updatedId) {
+      const updatedTasks = tasks.map((task) => {
+        if (task.id === updatedId) {
+          return { ...task, title: taskText, description: taskDescription };
+        }
+        return task;
+      });
+      setTasks(updatedTasks);
+    } else {
+      setTasks([
+        ...tasks,
+        {
+          id: Date.now(),
+          title: taskText,
+          description: taskDescription,
+          status: "incompleted",
+        },
+      ]);
+    }
   }
 
   return (
@@ -45,57 +79,47 @@ function Todo() {
             <img className="iconB" src={iconB} alt="Todo Icon" />
             <h5>Today</h5>
           </div>
-          <div className="side-bar-item">
+          {/* <div className="side-bar-item">
             <img className="iconB" src={iconB} alt="Todo Icon" />
             <h5>Yesterday</h5>
           </div>
           <div className="side-bar-item">
             <img className="iconB" src={iconB} alt="Todo Icon" />
             <h5>Upcoming</h5>
-          </div>
+          </div> */}
         </div>
         <div className="todo-list">
           <h1 className="todo-list-heading">Today</h1>
           <h5 className="todo-list-completed">
-            {tasks?.filter((task) => task.status === "completed").length}/
+            {tasks?.filter((task) => task.status === "complete").length}/
             {tasks?.length || 0} completed
           </h5>
           <div className="todo-list-data">
             <div className="todo-list-column">
               {/* // start */}
-              {tasks?.map((task) => (
-
-                <div className="todo-list-row">
-                  <input type="radio" />
-                  <div className="todo-item">
-                    <div>
-                      <div className="todo-item-text">
-                        <p>
-                          <b>
-                            {task?.title}
-                          </b>
-                        </p>
-                        <p>
-                        {task?.description}
-                        </p>
-                      </div>
-                    </div>
-                    <div className="todo-item-icons">
-                      <img
-                        src={Edit}
-                        alt="Edit Icon"
-                        className="todo-item-edit-icon"
-                      />
-                      <img
-                        src={Dots}
-                        alt="Edit Icon"
-                        className="todo-item-dots-icon"
-                      />
-                    </div>
+              <Suspense
+                fallback={
+                  <div>
+                    <b>Loading Data...</b>
                   </div>
+                }
+              >
+                <LazyLoadingComp
+                  tasks={tasks}
+                  setTasks={setTasks}
+                  handleDeleteButton={handleDeleteButton}
+                  handleAddTaskClick={handleAddTaskClick}
+                />
+              </Suspense>
+              {showPopupBorder && (
+                <div className="popup-border">
+                  <img
+                    src={Delete}
+                    alt="AddTask Icon"
+                    onClick={handleRemoveTask}
+                  />
                 </div>
-              ))}
-
+              )}
 
               {/* end */}
             </div>
@@ -107,44 +131,17 @@ function Todo() {
               />
               <p>Add Task</p>
             </div>
+
             {showAddTask && (
-              <div>
-                <div
-                  style={{
-                    width: "1040px",
-                    height: "142px",
-                    border: "2px solid black",
-                    marginLeft: "24px",
-                    padding: "10px",
-                    borderRadius: "12px",
-                    backgroundColor: "#F4F4F4",
-                  }}
-                >
-                  <input
-                    type="text"
-                    placeholder="Task Title"
-                    value={taskText}
-                    onChange={(e) => setTaskText(e.target.value)}
-                    className="task-input"
-                  />
-                  <hr />
-                  <input
-                    type="text"
-                    placeholder="Description"
-                    value={taskDescription}
-                    onChange={(e) => setTaskDescription(e.target.value)}
-                    className="task-input"
-                  />
-                </div>
-                <div className="task-buttons">
-                  <button className="add-button" onClick={handelAddTask}>
-                    Add
-                  </button>
-                  <button className="cancel-button" onClick={handelCancel}>
-                    Cancel
-                  </button>
-                </div>
-              </div>
+                <TodoTextBox
+                  taskText={taskText}
+                  setTaskText={setTaskText}
+                  taskDescription={taskDescription}
+                  setTaskDescription={setTaskDescription}
+                  handelAddTask={handelAddTask}
+                  handelCancel={handelCancel}
+                  updatedId={updatedId}
+                />
             )}
           </div>
         </div>
