@@ -11,7 +11,7 @@ function Header() {
           <img className = "icon" src={icon} alt="Todo Icon" />
           <h1 style={{ color: "#FF4F5A" }}>Todo daily</h1>
         </div>
-        <a rel="stylesheet" href="login.css" style={{ color: "#FF4F5A" }}>
+        <a rel="stylesheet" href="/login" style={{ color: "#FF4F5A" }}>
           Login
         </a>
       </div>
