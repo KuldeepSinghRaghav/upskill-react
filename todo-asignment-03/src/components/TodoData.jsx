@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useRef, useEffect} from "react";
 import Edit from "../../public/edit2.svg";
 import Dots from "../../public/dots.svg";
 import DeletePopup from "./DeletePopup";
@@ -11,11 +11,26 @@ function TodoData({
 }) {
   const [show, setShow] = useState(false)
   const handleDelete = () => {
-    handleRemoveTask(task.id)
+    handleRemoveTask(task?.id)
     setShow(false)
   }
+  const todoItemRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (todoItemRef.current && !todoItemRef.current.contains(event.target)) {
+        setShow(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className="todo-list-row">
+    <div className="todo-list-row" ref={todoItemRef}>
       <input
         type="radio"
         checked={task.status === "complete"}

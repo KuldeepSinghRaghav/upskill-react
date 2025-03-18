@@ -52,7 +52,7 @@
 }
 
 .todo-list-heading {
-  color: red;
+  color: #ff4f5a;
 }
 
 .todo-list-completed {
@@ -183,18 +183,8 @@ hr {
 }
 
 .completed-radio {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer
 
-}
-
-
-/* Optional: Add a hover effect */
-.completed-radio:hover {
-  border-color: #999;
-  
+  cursor: pointer;
 }
 
 /* Add this CSS to your stylesheet or in a <style> block in your component */

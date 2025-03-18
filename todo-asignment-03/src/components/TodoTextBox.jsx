@@ -65,7 +65,8 @@ function TodoTextBox({
         <input
           type="text"
           name="name"
-          placeholder="Task Title"
+          placeholder="Task title"
+          style={{ fontWeight: 'bold' }}
           value={taskText}
           onChange={handleChange}
           className="task-input"
