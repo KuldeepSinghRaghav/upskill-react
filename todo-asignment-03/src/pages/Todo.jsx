@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import icon from "../../public/icon.svg";
-import iconB from "../../public/calendar.svg";
 import AddTask from "../../public/add.svg";
-import Delete from "../../public/delete.svg";
 import { Suspense } from "react";
 import TodoTextBox from "../components/TodoTextBox";
+import SideBar from "../components/SideBar";
 
 const LazyLoadingComp = React.lazy(() => import("../components/TodoList"));
 function Todo() {
@@ -12,7 +11,6 @@ function Todo() {
   const [taskText, setTaskText] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
   const [showAddTask, setShowAddTask] = useState(false);
-  const [showPopupBorder, setShowPopupBorder] = useState(false);
   const [updatedId, setUpdateId] = useState();
 
   function handelCancel() {
@@ -34,13 +32,12 @@ function Todo() {
     }
   }
 
-  function handleRemoveTask() {
-    setShowPopupBorder(!showPopupBorder);
-    setTasks(tasks.filter((task) => task.id !== updatedId));
+  function handleRemoveTask(id) {
+    setTasks(tasks.filter((task) => task.id !== id));
+    setShowAddTask(!showAddTask);
   }
 
   function handleDeleteButton(task) {
-    setShowPopupBorder(!showPopupBorder);
     setUpdateId(task.id);
   }
 
@@ -74,20 +71,7 @@ function Todo() {
         <h1>Todo Daily</h1>
       </header>
       <div className="todo-container">
-        <div className="side-bar">
-          <div className="side-bar-item">
-            <img className="iconB" src={iconB} alt="Todo Icon" />
-            <h5>Today</h5>
-          </div>
-          {/* <div className="side-bar-item">
-            <img className="iconB" src={iconB} alt="Todo Icon" />
-            <h5>Yesterday</h5>
-          </div>
-          <div className="side-bar-item">
-            <img className="iconB" src={iconB} alt="Todo Icon" />
-            <h5>Upcoming</h5>
-          </div> */}
-        </div>
+        <SideBar />
         <div className="todo-list">
           <h1 className="todo-list-heading">Today</h1>
           <h5 className="todo-list-completed">
@@ -96,7 +80,6 @@ function Todo() {
           </h5>
           <div className="todo-list-data">
             <div className="todo-list-column">
-              {/* // start */}
               <Suspense
                 fallback={
                   <div>
@@ -109,39 +92,25 @@ function Todo() {
                   setTasks={setTasks}
                   handleDeleteButton={handleDeleteButton}
                   handleAddTaskClick={handleAddTaskClick}
+                  handleRemoveTask={handleRemoveTask}
                 />
               </Suspense>
-              {showPopupBorder && (
-                <div className="popup-border">
-                  <img
-                    src={Delete}
-                    alt="AddTask Icon"
-                    onClick={handleRemoveTask}
-                  />
-                </div>
-              )}
-
-              {/* end */}
             </div>
-            <div className="add-task-icon">
-              <img
-                src={AddTask}
-                alt="AddTask Icon"
-                onClick={handleAddTaskClick}
-              />
+            <div className="add-task-icon" onClick={handleAddTaskClick}>
+              <img src={AddTask} alt="AddTask Icon" />
               <p>Add Task</p>
             </div>
 
             {showAddTask && (
-                <TodoTextBox
-                  taskText={taskText}
-                  setTaskText={setTaskText}
-                  taskDescription={taskDescription}
-                  setTaskDescription={setTaskDescription}
-                  handelAddTask={handelAddTask}
-                  handelCancel={handelCancel}
-                  updatedId={updatedId}
-                />
+              <TodoTextBox
+                taskText={taskText}
+                setTaskText={setTaskText}
+                taskDescription={taskDescription}
+                setTaskDescription={setTaskDescription}
+                handelAddTask={handelAddTask}
+                handelCancel={handelCancel}
+                updatedId={updatedId}
+              />
             )}
           </div>
         </div>

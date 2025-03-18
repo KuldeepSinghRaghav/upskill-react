@@ -10,41 +10,25 @@ import { Link } from 'react-router-dom'
 function Contant() {
   return (
     <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
+      className="main-container"
     >
       <div className="main-contant">
         <div className="title">
           <h1>Organizing your day activity with ToDo Daily</h1>
         </div>
-        <div style={{ position: "relative" }}>
+        <div className="landing-image-container">
           <img src={Landing} alt="Todo Icon" />
           <Link className="btn" to="/login">Get Started</Link>
         </div>
       </div>
       <div
-        style={{
-          width: "1072px",
-          height: "383px",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          textAlign: "center",
-        }}
+        className="secondary-container"
       >
         <div>
           <h1>Don't let you day doing nothing</h1>
         </div>
         <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-around",
-          }}
+          className="icon-container"
         >
           <div>
             <img src={Task} alt="Task Icon" />
@@ -68,23 +52,17 @@ function Contant() {
       </div>
 
       <div
-        style={{
-          width: "1031px",
-          height: "370px",
-          marginTop: "185px",
-          display: "flex",
-          flexDirection: "row",
-        }}
+        className="image-text-container"
       >
         <div>
           <img
-            style={{ width: "583px", height: "370px" }}
+            className="main-image"
             src={Image}
             alt="Image"
           />
         </div>
         <div>
-          <h1 style={{ marginTop: "31px" }}>
+          <h1 className="image-text-title" >
             Achieve your target and won your life
           </h1>
           <Link className="btnB" to="/login">Get Started</Link>

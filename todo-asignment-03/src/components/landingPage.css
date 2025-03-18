@@ -93,3 +93,9 @@ h4{
   flex-direction: row;
   justify-content:space-around;
 }
+
+.error-message {
+  color: red;
+  margin-left: 24px;
+  margin-top: 5px
+}

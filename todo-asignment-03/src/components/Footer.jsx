@@ -4,22 +4,13 @@ import Icon from "../../public/icon.svg";
 function Footer() {
   return (
     <div>
-      <div style={{ width: "1446px" , borderTop: "1px solid red", marginTop:'172px' }}></div>
+      <div className="footer-border"></div>
       <div className="footer">
         <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            flexDirection: "column",
-          }}
+          className="footer-content"
         >
           <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              flexDirection: "row",
-              marginTop: "50px",
-            }}
+            className="footer-icon-text"
           >
             <img src={Icon} alt="" />
             <p>
@@ -31,7 +22,7 @@ function Footer() {
             <p>
               DK Tech Company
               <br />
-              <span style={{ color: "gray" }}>
+              <span className="footer-address">
                 Uma Street, Lost City, Aincard
               </span>
             </p>
@@ -39,23 +30,19 @@ function Footer() {
         </div>
 
         <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            flexDirection: "row",
-          }}
+          className="footer-links"
         >
           <div>
-            <h4 style={{ textAlign: "center" }}>Features</h4>
+            <h4 className="footer-heading">Features</h4>
             <ul style={{ listStyleType: "none" }}>
               <li>Lorem</li>
               <li>Lupsum</li>
               <li>Sit</li>
               <li>Dolor</li>
             </ul>
-          </div>{" "}
+          </div>
           <div>
-            <h4 style={{ textAlign: "center" }}>Pricing</h4>
+            <h4 className="footer-heading">Pricing</h4>
             <ul style={{ listStyleType: "none" }}>
               <li>Lorem</li>
               <li>Lupsum</li>

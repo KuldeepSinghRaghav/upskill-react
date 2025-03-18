@@ -83,7 +83,7 @@ function TodoTextBox({
         />
       </div>
       {errorMessage && (
-        <div style={{ color: "red", marginLeft: "24px", marginTop: "5px" }}>
+        <div className="error-message">
           {errorMessage}
         </div>
       )}
