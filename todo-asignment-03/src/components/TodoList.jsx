@@ -1,5 +1,7 @@
 import React from "react";
 import TodoData from "./TodoData";
+import { Status } from "../utils/constants";
+
 
 function TodoList({
   tasks,
@@ -13,7 +15,7 @@ function TodoList({
       if (task.id === idToUpdateStatus) {
         return {
           ...task,
-          status: task?.status === "incomplete" ? "complete" : "complete",
+          status: task?.status === Status.INCOMPLETE ? Status.COMPLETE : Status.COMPLETE,
         };
       }
       return task;

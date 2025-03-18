@@ -1,5 +1,5 @@
 import React from 'react'
-import iconB from "../../public/calendar.svg";
+import iconB from "../images/calendar.svg";
 import '../index.css'
 
 function SideBar() {

@@ -7,7 +7,7 @@ import Work from "../../public/work.svg";
 import Image from "../../public/image1.png";
 import { Link } from 'react-router-dom'
 
-function Contant() {
+function Content() {
   return (
     <div
       className="main-container"
@@ -72,4 +72,4 @@ function Contant() {
   );
 }
 
-export default Contant;
+export default Content;

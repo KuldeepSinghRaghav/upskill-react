@@ -1,3 +1,5 @@
+/* @import "tailwindcss"; */
+
 .todo-header {
   background-color: #ff4f5a;
   color: azure;
@@ -7,6 +9,7 @@
   align-items: center;
   height: 66px;
   width: 1440px;
+  
 }
 
 .side-bar-item {

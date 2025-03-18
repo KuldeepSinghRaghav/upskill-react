@@ -1,13 +1,13 @@
 import React from 'react'
 import Header from './Header'
-import Contant from './Contant'
+import Content from './Content'
 import Footer from './Footer'
 
 function Landing() {
   return (
     <>
     <Header />
-    <Contant />
+    <Content />
     <Footer />
     </>
   )
