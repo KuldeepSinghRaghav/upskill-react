@@ -1,0 +1,296 @@
+/* @import "tailwindcss"; */
+
+.todo-header {
+  background-color: #ff4f5a;
+  color: azure;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  height: 66px;
+  width: 1440px;
+  
+}
+
+.side-bar-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+.iconB {
+  width: 29px;
+  height: 29px;
+  margin-right: 10px;
+}
+
+.side-bar {
+  height: 727px;
+  width: 255px;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+
+.todo-list {
+  /* border: 2px solid lightgray; */
+  height: 750px;
+  width: 100%;
+  padding-left: 14px;
+}
+
+.todo-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.todo-list-data {
+  /* border: 2px solid lightgray; */
+  width: 1090px;
+  height: 428px;
+  overflow: Auto;
+}
+
+.todo-list-heading {
+  color: #ff4f5a;
+}
+
+.todo-list-completed {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.todo-list-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.todo-list-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.todo-item {
+  width: 1051px;
+  height: 70px;
+  border: 1px solid gray;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 2px;
+  /* overflow: auto; */
+  position: relative;
+}
+
+.todo-item-text {
+  font-size: 18px;
+}
+.todo-item-text p {
+  width: 350px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.todo-item-icons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.todo-item-edit-icon {
+  width: 26px;
+  height: 26px;
+}
+
+.todo-item-edit-icon:hover {
+  transform: scale(1.2); /* Zoom in on hover */
+  transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+}
+
+.todo-item-dots-icon {
+  width: 26px;
+  height: 26px;
+}
+
+.todo-item-dots-icon:hover {
+  transform: scale(1.2); /* Zoom in on hover */
+  transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+}
+
+.add-task-icon {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  height: 28px;
+  margin-top: 10px;
+  text-align: center;
+  gap: 10px;
+  color: #ff4f5a;
+  cursor: pointer;
+}
+
+.task-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #666; /* Gray placeholder color */
+  padding: 8px 0;
+  background-color: #F4F4F4;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #ddd; /* Light gray horizontal line */
+  margin: 10px 0;
+}
+
+.task-buttons {
+  display: flex;
+  gap: 10px;
+  margin-left: 24px;
+  margin-top: 10px;
+}
+
+.add-button {
+  background-color: #e74c3c; /* Red background */
+  color: white;
+  border: none;
+  padding: 8px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.cancel-button {
+  background-color: transparent;
+  color: #e74c3c; /* Red text */
+  border: 2px solid #e74c3c; /* Red border */
+  padding: 8px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.completed-radio {
+
+  cursor: pointer;
+}
+
+/* Add this CSS to your stylesheet or in a <style> block in your component */
+.popup-border {
+  position: absolute;
+  border: 1px solid rgb(217, 217, 217);
+  padding: 10px;
+  border-radius: 5px;
+  background-color: white;
+  height: 22px;
+  width: 100px;
+  text-align: center;
+  color: #ff4f5a;
+  z-index: 10; /* Ensure it's above other elements */
+  right: 2px; /* Adjust as needed for horizontal position */
+  bottom: -17px;
+  box-shadow: 0 2px 4px rgba(0.2, 0.2, 0.2, 0.2); /* Add shadow */
+  display: flex; /* Enable flexbox layout */
+  flex-direction: row; /* Arrange items in a row */
+  gap: 4px;
+
+  align-items: center; /* Vertically align items in the center */
+  cursor: pointer;
+}
+
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-image-container {
+  position: relative;
+}
+
+.secondary-container {
+  width: 1072px;
+  height: 383px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.icon-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.image-text-container {
+  width: 1031px;
+  height: 370px;
+  margin-top: 185px;
+  display: flex;
+  flex-direction: row;
+}
+
+.main-image {
+    width: 583px;
+    height: 370px;
+}
+
+.image-text-title {
+    margin-top: 31px;
+}
+
+.footer-border {
+    width: "1446px" ;
+    border-top: "5px solid red";
+    margin-top:'172px'
+}
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-content {
+    display: "flex";
+    align-items: "center";
+    flex-direction: "column";
+}
+
+.footer-icon-text {
+    display: "flex";
+    align-items: "center";
+    flex-direction: "row";
+    margin-top: "50px";
+}
+
+.footer-address {
+    color: "gray"
+}
+
+.footer-links {
+    display: "flex";
+    align-items: "center";
+    flex-direction: "row";
+}
+
+.footer-heading {
+    text-align: "center"
+}
