@@ -34,7 +34,7 @@ function Todo() {
 
   function handleRemoveTask(id) {
     setTasks(tasks.filter((task) => task.id !== id));
-    setShowAddTask(flase);
+    setShowAddTask(false);
   }
 
   function handleDeleteButton(task) {
