@@ -1,4 +1,3 @@
-// src/redux/counter/reducer.js
 import { INCREMENT, DECREMENT } from './actionTypes';
 
 const initialState = {

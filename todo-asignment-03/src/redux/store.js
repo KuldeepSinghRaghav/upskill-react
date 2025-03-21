@@ -1,14 +1,14 @@
-// src/redux/store.js
-import { createStore, combineReducers, applyMiddleware } from 'redux';
-import {thunk} from 'redux-thunk';
-import counterReducer from './counter/reducer';
-import postsReducer from './posts/reducer';
-import { loadState, saveState } from '../utils/localStorage';
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import { thunk } from "redux-thunk";
+import counterReducer from "./counter/reducer";
+import authReducer from "./login/reducer";
+import { loadState, saveState } from "../utils/localStorage";
 
 // Combine reducers for a scalable architecture
 const rootReducer = combineReducers({
   counter: counterReducer,
-  posts: postsReducer,
+  auth: authReducer,
+  // Add more reducers here
 });
 
 // Load persisted state from Local Storage
@@ -22,6 +22,9 @@ store.subscribe(() => {
   saveState({
     counter: {
       count: store.getState().counter.count,
+    },
+    authStatus: {
+      auth: store.getState().auth.isLoggedIn,
     },
     // You can choose which slices to persist.
   });

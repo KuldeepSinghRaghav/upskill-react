@@ -18,7 +18,6 @@
 
 import React from 'react';
 import Counter from './components/Counter';
-import Posts from './components/Posts';
 import store from './redux/store';
 import { Provider } from 'react-redux';
 
@@ -28,7 +27,7 @@ const App = () => {
       <div style={{ padding: '2rem' }}>
         <h1>React Redux & Local Storage Demo</h1>
         <Counter />
-        <Posts />
+        {/* <Posts /> */}
       </div>
     </Provider>
   );
