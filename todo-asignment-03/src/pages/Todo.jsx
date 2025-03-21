@@ -4,6 +4,9 @@ import AddTask from "../../public/add.svg";
 import { Suspense } from "react";
 import TodoTextBox from "../components/TodoTextBox";
 import SideBar from "../components/SideBar";
+import { logout } from "../redux/login/actions";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const LazyLoadingComp = React.lazy(() => import("../components/TodoList"));
 function Todo() {
@@ -16,6 +19,15 @@ function Todo() {
   function handelCancel() {
     setShowAddTask(false);
     setUpdateId("");
+  }
+
+  const authStatus = useSelector((state) => state.auth.isLoggedIn);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  function logoutUser() {
+    navigate("/login");
+    dispatch(logout());
+    localStorage.removeItem("isLoggedIn");
   }
 
   function handleAddTaskClick(tasks) {
@@ -66,9 +78,16 @@ function Todo() {
 
   return (
     <div>
+      {/* <button onClick={logoutUser}>Logout</button> */}
       <header className="todo-header">
-        <img className="icon" src={icon} alt="Todo Icon" />
-        <h1>Todo Daily</h1>
+        <div className="todo-header-left">
+         <img className="icon" src={icon} alt="Todo Icon" />
+         <h1>Todo Daily</h1>
+        </div>
+        <div>
+          <button onClick={logoutUser}>Logout</button>
+        </div>
+
       </header>
       <div className="todo-container">
         <SideBar />

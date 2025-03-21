@@ -1,14 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import icon from "../../public/icon.svg";
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { login } from "../redux/login/actions";
 
 function Login() {
+  const navigate = useNavigate();
+  const authStatus = useSelector((state) => state.auth.isLoggedIn);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const loginStatus = localStorage.getItem("isLoggedIn");
+    if (loginStatus) {
+      navigate("/todo");
+      return;
+    }
+    return;
+  }, []);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const dummyEmail = "test@gmail.com";
   const dummyPass = "123456";
-  const navigate = useNavigate();
 
   function handleBackClick() {
     window.history.back();
@@ -16,7 +29,9 @@ function Login() {
 
   function handleLogin() {
     if (email === dummyEmail && password === dummyPass) {
+      dispatch(login());
       navigate("/todo");
+      localStorage.setItem("isLoggedIn", loginStatus);
     } else {
       setErrorMessage(" Login Creds are not correct !");
     }
@@ -53,11 +68,7 @@ function Login() {
           <h1>Signin</h1>
         </div>
         {/* Conditionally render error message */}
-        {errorMessage && ( 
-          <div style={{ color: "red" }}>
-            {errorMessage}
-          </div>
-        )}
+        {errorMessage && <div style={{ color: "red" }}>{errorMessage}</div>}
         <input
           className="email-input"
           style={{ padding: "10px", marginTop: "60px", margin: "2px" }}
