@@ -14,16 +14,16 @@ function Footer() {
           >
             <img src={Icon} alt="" />
             <p>
-              Lets change your habit <br />
-              join with million people
+              Discover new recipes <br />
+              Join our culinary community
             </p>
           </div>
           <div>
             <p>
-              DK Tech Company
+              Recipes Menu App
               <br />
               <span className="footer-address">
-                Uma Street, Lost City, Aincard
+                Flavor Street, Gourmet City, Foodland
               </span>
             </p>
           </div>
@@ -33,21 +33,21 @@ function Footer() {
           className="footer-links"
         >
           <div>
-            <h4 className="footer-heading">Features</h4>
+            <h4 className="footer-heading">Recipes</h4>
             <ul style={{ listStyleType: "none" }}>
-              <li>Lorem</li>
-              <li>Lupsum</li>
-              <li>Sit</li>
-              <li>Dolor</li>
+              <li>Breakfast</li>
+              <li>Lunch</li>
+              <li>Dinner</li>
+              <li>Desserts</li>
             </ul>
           </div>
           <div>
-            <h4 className="footer-heading">Pricing</h4>
+            <h4 className="footer-heading">Resources</h4>
             <ul style={{ listStyleType: "none" }}>
-              <li>Lorem</li>
-              <li>Lupsum</li>
-              <li>Sit</li>
-              <li>Dolor</li>
+              <li>Cooking Tips</li>
+              <li>Nutrition Info</li>
+              <li>Chef Interviews</li>
+              <li>FAQ</li>
             </ul>
           </div>
         </div>

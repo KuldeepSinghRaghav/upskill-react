@@ -9,7 +9,6 @@
   align-items: center;
   height: 66px;
   max-width: 1440px;
-  
 }
 .todo-header-left {
   display: flex;
@@ -22,6 +21,14 @@
   justify-content: start;
   align-items: center;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+.side-bar :hover {
+  color: #ff4f5a;
+  cursor: pointer;
+  border: 1px solid gray;
+  border-radius: 4px;
+  transform: scale(1.05);
 }
 
 .iconB {
@@ -97,6 +104,7 @@
 }
 .todo-item-text p {
   width: 350px;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -114,8 +122,8 @@
 }
 
 .todo-item-edit-icon:hover {
-  transform: scale(1.2); /* Zoom in on hover */
-  transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
 }
 
 .todo-item-dots-icon {
@@ -124,8 +132,12 @@
 }
 
 .todo-item-dots-icon:hover {
-  transform: scale(1.2); /* Zoom in on hover */
-  transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
+}
+
+.add-task-icon :hover {
+  transform: scale(1.1);
 }
 
 .add-task-icon {
@@ -143,6 +155,16 @@
   color: #ff4f5a;
   cursor: pointer;
 }
+h1,
+h5,
+h6,
+p,
+input,
+button,
+a,
+textarea {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
 
 .task-input {
   width: 100%;
@@ -151,7 +173,7 @@
   font-size: 16px;
   color: #666; /* Gray placeholder color */
   padding: 8px 0;
-  background-color: #F4F4F4;
+  background-color: #f4f4f4;
 }
 
 hr {
@@ -190,11 +212,9 @@ hr {
 }
 
 .completed-radio {
-
   cursor: pointer;
 }
 
-/* Add this CSS to your stylesheet or in a <style> block in your component */
 .popup-border {
   position: absolute;
   border: 1px solid rgb(217, 217, 217);
@@ -216,7 +236,6 @@ hr {
   align-items: center; /* Vertically align items in the center */
   cursor: pointer;
 }
-
 
 .main-container {
   display: flex;
@@ -253,48 +272,87 @@ hr {
 }
 
 .main-image {
-    width: 583px;
-    height: 370px;
+  width: 583px;
+  height: 370px;
 }
 
 .image-text-title {
-    margin-top: 31px;
+  margin-top: 31px;
 }
 
 .footer-border {
-    width: "1446px" ;
-    border-top: "5px solid red";
-    margin-top:'172px'
+  width: "1446px";
+  border-top: "5px solid red";
+  margin-top: "172px";
 }
 
 .footer {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
 .footer-content {
-    display: "flex";
-    align-items: "center";
-    flex-direction: "column";
+  display: "flex";
+  align-items: "center";
+  flex-direction: "column";
 }
 
 .footer-icon-text {
-    display: "flex";
-    align-items: "center";
-    flex-direction: "row";
-    margin-top: "50px";
+  display: "flex";
+  align-items: "center";
+  flex-direction: "row";
+  margin-top: "50px";
 }
 
 .footer-address {
-    color: "gray"
+  color: "gray";
 }
 
 .footer-links {
-    display: "flex";
-    align-items: "center";
-    flex-direction: "row";
+  display: "flex";
+  align-items: "center";
+  flex-direction: "row";
 }
 
 .footer-heading {
-    text-align: "center"
+  text-align: "center";
+}
+
+.logout-button {
+  background-color: #f9f9f9; /* Red background */
+  color: black; /* White text */
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 4px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.logout-button:hover {
+  color: white;
+  background-color: black;
+}
+
+.login-button,
+.back-button {
+  padding: 10px;
+  margin: 2px;
+  background-color: #ff4f5a;
+  color: white;
+  border-radius: 5px;
+  border: none;
+}
+
+.login-button {
+  margin-top: 20px;
+}
+
+.login-button:hover,
+.back-button:hover {
+  background-color: #e44d50; /* Slightly darker shade for hover effect */
 }

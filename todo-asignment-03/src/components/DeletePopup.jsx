@@ -9,7 +9,7 @@ function DeletePopup({ handleRemoveTask }) {
         alt="AddTask Icon"
         style={{ backgroundColor: "#fff" }}
       />
-      <p>Delete Task</p>
+      <p style={{marginLeft:'10px'}}>Delete</p>
     </div>
   );
 }

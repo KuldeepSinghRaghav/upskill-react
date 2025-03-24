@@ -14,7 +14,7 @@ function Content() {
     >
       <div className="main-contant">
         <div className="title">
-          <h1>Organizing your day activity with ToDo Daily</h1>
+          <h1>Explore and Organize Your Recipes with Our Menu Planner</h1>
         </div>
         <div className="landing-image-container">
           <img src={Landing} alt="Todo Icon" />
@@ -25,28 +25,28 @@ function Content() {
         className="secondary-container"
       >
         <div>
-          <h1>Don't let you day doing nothing</h1>
+          <h1>Find inspiration for your next meal</h1>
         </div>
         <div
           className="icon-container"
         >
           <div>
             <img src={Task} alt="Task Icon" />
-            <h6>Small Talk</h6>
+            <h6>Plan Meals</h6>
           </div>
 
           <div>
             <img src={Note} alt="Note Icon" />
-            <h6>Write it</h6>
+            <h6>Save Recipes</h6>
           </div>
 
           <div>
             <img src={Work} alt="Work Icon" />
-            <h6>Do it</h6>
+            <h6>Shop Ingredients</h6>
           </div>
           <div>
             <img src={Event} alt="Event Icon" />
-            <h6>repeat</h6>
+            <h6>Enjoy Cooking</h6>
           </div>
         </div>
       </div>
@@ -63,7 +63,7 @@ function Content() {
         </div>
         <div>
           <h1 className="image-text-title" >
-            Achieve your target and won your life
+            Master the Art of Cooking
           </h1>
           <Link className="btnB" to="/login">Get Started</Link>
         </div>

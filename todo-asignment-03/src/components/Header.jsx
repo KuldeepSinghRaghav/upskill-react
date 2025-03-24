@@ -9,7 +9,7 @@ function Header() {
       <div className="Landing-header">
         <div className="left-side">
           <img className = "icon" src={icon} alt="Todo Icon" />
-          <h1 style={{ color: "#FF4F5A" }}>Todo daily</h1>
+          <h1 style={{ color: "#FF4F5A" }}>Recipes Menu</h1>
         </div>
         <a rel="stylesheet" href="/login" style={{ color: "#FF4F5A" }}>
           Login

@@ -26,8 +26,8 @@ function TodoTextBox({
       setErrorMessage("Task Title is required");
       return false;
     }
-    if (taskText.length < 5) {
-      setErrorMessage("Task Title must be at least 5 characters long");
+    if (taskText.length < 3) {
+      setErrorMessage("Task Title must be at least 3 characters long");
       return false;
     }
     if (!taskDescription) {
@@ -49,6 +49,12 @@ function TodoTextBox({
     }
   };
 
+  function handleKeyDown(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      handleAddTaskClick();
+    }
+  }
+
   return (
     <div>
       <div
@@ -65,22 +71,24 @@ function TodoTextBox({
         <input
           type="text"
           name="name"
-          placeholder="Task title"
+          placeholder="Recipe title"
           style={{ fontWeight: 'bold' }}
           value={taskText}
           onChange={handleChange}
+          onKeyDown={handleKeyDown}
           className="task-input"
           required
         />
         <hr />
-        <input
-          type="text"
+        <textarea
           name="description"
           placeholder="Description"
           value={taskDescription}
           onChange={handleChange}
+          onKeyDown={handleKeyDown}
           className="task-input"
           required
+          style={{ height: '80px', resize: 'none' }}
         />
       </div>
       {errorMessage && (

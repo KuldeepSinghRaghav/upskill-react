@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import icon from "../../public/icon.svg";
 import AddTask from "../../public/add.svg";
 import { Suspense } from "react";
@@ -15,6 +15,9 @@ function Todo() {
   const [taskDescription, setTaskDescription] = useState("");
   const [showAddTask, setShowAddTask] = useState(false);
   const [updatedId, setUpdateId] = useState();
+  const [search, setSearch] = useState("All");
+  //! set All on save new tasks.
+  const [filteredTasks, setFilteredTasks] = useState([]);
 
   function handelCancel() {
     setShowAddTask(false);
@@ -24,6 +27,19 @@ function Todo() {
   const authStatus = useSelector((state) => state.auth.isLoggedIn);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // Redirect if not authenticated
+    if (!authStatus) {
+      navigate("/login");
+    }
+
+    // Filter tasks based on the search term
+    setFilteredTasks(
+      search === "All" ? tasks : tasks.filter((task) => task.title.toLowerCase().includes(search.toLowerCase()))
+    );
+  }, [authStatus, navigate, tasks, search]);
+
   function logoutUser() {
     navigate("/login");
     dispatch(logout());
@@ -42,10 +58,20 @@ function Todo() {
       setTaskText("");
       setTaskDescription("");
     }
+    // window.scrollTo(0, 0);
+    if (typeof window !== "undefined") {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth", // Smooth scroll
+      });
+    }
   }
 
   function handleRemoveTask(id) {
-    setTasks(tasks.filter((task) => task.id !== id));
+    // Update directly on `tasks`
+    const updatedTasks = tasks.filter((task) => task.id !== id);
+    setTasks(updatedTasks);
     setShowAddTask(false);
   }
 
@@ -55,16 +81,16 @@ function Todo() {
 
   function handelAddTask() {
     setShowAddTask(false);
+    let updatedTasks;
     if (updatedId) {
-      const updatedTasks = tasks.map((task) => {
+      updatedTasks = tasks.map((task) => {
         if (task.id === updatedId) {
           return { ...task, title: taskText, description: taskDescription };
         }
         return task;
       });
-      setTasks(updatedTasks);
     } else {
-      setTasks([
+      updatedTasks = [
         ...tasks,
         {
           id: Date.now(),
@@ -72,30 +98,35 @@ function Todo() {
           description: taskDescription,
           status: "incompleted",
         },
-      ]);
+      ];
     }
+    setTasks(updatedTasks);
   }
 
   return (
     <div>
-      {/* <button onClick={logoutUser}>Logout</button> */}
       <header className="todo-header">
         <div className="todo-header-left">
-         <img className="icon" src={icon} alt="Todo Icon" />
-         <h1>Todo Daily</h1>
+          {/* <img className="icon" src={icon} alt="Todo Icon" /> */}
+          <h1 style={{ marginLeft: "10px" }}>Recipes Menu</h1>
         </div>
         <div>
-          <button onClick={logoutUser}>Logout</button>
+          <button className="logout-button" onClick={logoutUser}>
+            Logout
+          </button>
         </div>
-
       </header>
       <div className="todo-container">
-        <SideBar />
+        <SideBar setSearch={setSearch} />
         <div className="todo-list">
-          <h1 className="todo-list-heading">Today</h1>
+          {/* <h1 className="todo-list-heading">Menu</h1> */}
+          {search && (
+            <h1 className="todo-list-heading">{`${search} Recipes`}</h1>
+          )}
+
           <h5 className="todo-list-completed">
-            {tasks?.filter((task) => task.status === "complete").length}/
-            {tasks?.length || 0} completed
+            {filteredTasks?.filter((task) => task.status === "complete").length}/
+            {filteredTasks?.length || 0} completed
           </h5>
           <div className="todo-list-data">
             <div className="todo-list-column">
@@ -107,7 +138,7 @@ function Todo() {
                 }
               >
                 <LazyLoadingComp
-                  tasks={tasks}
+                  tasks={filteredTasks}
                   setTasks={setTasks}
                   handleDeleteButton={handleDeleteButton}
                   handleAddTaskClick={handleAddTaskClick}
@@ -117,7 +148,7 @@ function Todo() {
             </div>
             <div className="add-task-icon" onClick={handleAddTaskClick}>
               <img src={AddTask} alt="AddTask Icon" />
-              <p>Add Task</p>
+              <p>Add Recipe</p>
             </div>
 
             {showAddTask && (

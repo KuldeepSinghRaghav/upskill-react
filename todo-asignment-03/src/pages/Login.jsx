@@ -24,7 +24,8 @@ function Login() {
   const dummyPass = "123456";
 
   function handleBackClick() {
-    window.history.back();
+    // window.history.back();
+    navigate("/");
   }
 
   function handleLogin() {
@@ -57,11 +58,11 @@ function Login() {
         }}
       >
         <div className="left-side">
-          <div>
+          {/* <div>
             <img className="icon" src={icon} alt="Todo Icon" />
-          </div>
+          </div> */}
           <div>
-            <h1 style={{ color: "#FF4F5A" }}>Todo Daily</h1>
+            <h1 style={{ color: "#FF4F5A" }}>Recipes Menu</h1>
           </div>
         </div>
         <div style={{ margin: "5px" }}>
@@ -86,28 +87,12 @@ function Login() {
         />
         <button
           onClick={handleLogin}
-          style={{
-            padding: "10px",
-            margin: "2px",
-            marginTop: "20px",
-            backgroundColor: "#FF4F5A",
-            color: "white",
-            borderRadius: "5px",
-            border: "none",
-          }}
-        >
+          className="login-button">
           <b>Login</b>
         </button>
         <button
-          style={{
-            padding: "10px",
-            margin: "2px",
-            backgroundColor: "#FF4F5A",
-            color: "white",
-            borderRadius: "5px",
-            border: "none",
-          }}
           onClick={handleBackClick}
+          className="back-button"
         >
           <b>back Page</b>
         </button>

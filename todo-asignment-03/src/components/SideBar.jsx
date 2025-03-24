@@ -1,24 +1,33 @@
-import React from 'react'
+import React from "react";
 import iconB from "../images/calendar.svg";
-import '../index.css'
+import egg from "../images/egg.svg";
+import fish from "../images/fish2.svg";
+import food from "../images/food.svg";
+import meat from "../images/meat.svg";
 
-function SideBar() {
+import "../index.css";
+
+function SideBar({setSearch }) {
   return (
     <div className="side-bar">
-    <div className="side-bar-item">
-      <img className="iconB" src={iconB} alt="Todo Icon" />
-      <h5>Today</h5>
+      <div className="side-bar-item" onClick={() => setSearch('All')}>
+        <img className="iconB" src={food} alt="Todo Icon" />
+        <h5>All</h5>
+      </div>
+      <div className="side-bar-item" onClick={() => setSearch('Meat')}>
+        <img className="iconB" src={meat} alt="Todo Icon" />
+        <h5>Meat</h5>
+      </div>
+      <div className="side-bar-item" onClick={() => setSearch('Fish')}>
+        <img className="iconB" src={fish} alt="Todo Icon" />
+        <h5>Fish</h5>
+      </div>
+      <div className="side-bar-item" onClick={() => setSearch('Egg')}>
+        <img className="iconB" src={egg} alt="Todo Icon" />
+        <h5>Egg</h5>
+      </div>
     </div>
-    {/* <div className="side-bar-item">
-      <img className="iconB" src={iconB} alt="Todo Icon" />
-      <h5>Yesterday</h5>
-    </div>
-    <div className="side-bar-item">
-      <img className="iconB" src={iconB} alt="Todo Icon" />
-      <h5>Upcoming</h5>
-    </div> */}
-  </div>
-  )
+  );
 }
 
-export default SideBar
+export default SideBar;
