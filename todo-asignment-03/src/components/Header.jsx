@@ -20,7 +20,7 @@ function Header() {
         )}
         {!authStatus && (
           <a href="/login" style={{ color: "#FF4F5A", textDecoration: 'none' }}>
-            Home
+            Login
           </a>
         )}
       </div>
