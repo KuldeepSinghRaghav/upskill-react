@@ -138,11 +138,12 @@ function Todo() {
                 }
               >
                 <LazyLoadingComp
-                  tasks={filteredTasks}
+                  tasks={tasks}
                   setTasks={setTasks}
                   handleDeleteButton={handleDeleteButton}
                   handleAddTaskClick={handleAddTaskClick}
                   handleRemoveTask={handleRemoveTask}
+                  filteredTasks={filteredTasks}
                 />
               </Suspense>
             </div>

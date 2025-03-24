@@ -9,6 +9,7 @@ function TodoList({
   handleDeleteButton,
   handleAddTaskClick,
   handleRemoveTask,
+  filteredTasks
 }) {
   function UpdateStatus(idToUpdateStatus) {
     const updatedTasks = tasks?.map((task) => {
@@ -25,7 +26,7 @@ function TodoList({
 
   return (
     <div>
-      {tasks?.map((task) => (
+      {filteredTasks?.map((task) => (
         <TodoData
           task={task}
           UpdateStatus={UpdateStatus}

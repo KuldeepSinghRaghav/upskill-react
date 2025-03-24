@@ -38,8 +38,8 @@ function TodoData({
         onChange={() => UpdateStatus(task.id)}
         className={task.status === "complete" ? "completed-radio" : ""}
       />
-      <div className="todo-item">
-        <div key={task.id}>
+      <div className="todo-item" key={task.id}>
+        <div>
           <div className="todo-item-text">
             <p title={task?.title}>
               <b>{task?.title}</b>
