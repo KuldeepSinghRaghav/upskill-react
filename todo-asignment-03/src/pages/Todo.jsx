@@ -16,7 +16,6 @@ function Todo() {
   const [showAddTask, setShowAddTask] = useState(false);
   const [updatedId, setUpdateId] = useState();
   const [search, setSearch] = useState("All");
-  //! set All on save new tasks.
   const [filteredTasks, setFilteredTasks] = useState([]);
 
   function handelCancel() {

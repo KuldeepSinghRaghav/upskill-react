@@ -23,9 +23,7 @@ store.subscribe(() => {
     counter: {
       count: store.getState().counter.count,
     },
-    authStatus: {
-      auth: store.getState().auth.isLoggedIn,
-    },
+    auth: store.getState().auth,
     // You can choose which slices to persist.
   });
 });

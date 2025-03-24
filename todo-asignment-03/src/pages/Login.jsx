@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import icon from "../../public/icon.svg";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -7,14 +7,22 @@ import { login } from "../redux/login/actions";
 function Login() {
   const navigate = useNavigate();
   const authStatus = useSelector((state) => state.auth.isLoggedIn);
+
   const dispatch = useDispatch();
+  const emailInputRef = useRef(null);
+
   useEffect(() => {
-    const loginStatus = localStorage.getItem("isLoggedIn");
-    if (loginStatus) {
+    if(authStatus){
       navigate("/todo");
       return;
     }
-    return;
+    //! to store data in local storage.
+    // const loginStatus = localStorage.getItem("isLoggedIn");
+    // if (loginStatus) {
+    //   navigate("/todo");
+    //   return;
+    // }
+    emailInputRef.current.focus();
   }, []);
 
   const [email, setEmail] = useState("");
@@ -77,6 +85,7 @@ function Login() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email"
+          ref={emailInputRef}
         />
         <input
           style={{ padding: "10px", margin: "2px" }}
