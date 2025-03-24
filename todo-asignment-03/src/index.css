@@ -23,12 +23,18 @@
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
 
-.side-bar :hover {
+.side-bar-item:hover {
   color: #ff4f5a;
   cursor: pointer;
   border: 1px solid gray;
+  box-shadow: 0 4px 8px rgba(102, 102, 102, 0.3);
   border-radius: 4px;
+  padding-left: 20px;
   transform: scale(1.05);
+}
+
+.side-bar-item.active {
+  color: #ff4f5a;
 }
 
 .iconB {
