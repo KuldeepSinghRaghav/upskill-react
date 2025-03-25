@@ -52,6 +52,7 @@ function Todo() {
     navigate("/login");
     dispatch(logout());
     localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem('todo-tasks');
   }
 
   function handleAddTaskClick(tasks) {
