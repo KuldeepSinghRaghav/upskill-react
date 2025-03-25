@@ -11,7 +11,10 @@ import Footer from "../components/Footer";
 
 const LazyLoadingComp = React.lazy(() => import("../components/TodoList"));
 function Todo() {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(() => {
+    const storedTasks = localStorage.getItem('todo-tasks');
+    return storedTasks ? JSON.parse(storedTasks) : [];
+  });
   const [taskText, setTaskText] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
   const [taskImage, setTaskImage] = useState("");
@@ -40,6 +43,10 @@ function Todo() {
       search === "All" ? tasks : tasks.filter((task) => task.title.toLowerCase().includes(search.toLowerCase()))
     );
   }, [authStatus, navigate, tasks, search]);
+
+  useEffect(() => {
+    localStorage.setItem('todo-tasks', JSON.stringify(tasks));
+  }, [tasks]);
 
   function logoutUser() {
     navigate("/login");
