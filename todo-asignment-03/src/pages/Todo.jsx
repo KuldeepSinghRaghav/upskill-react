@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import icon from "../../public/icon.svg";
 import AddTask from "../../public/add.svg";
 import { Suspense } from "react";
 import TodoTextBox from "../components/TodoTextBox";
@@ -7,12 +6,15 @@ import SideBar from "../components/SideBar";
 import { logout } from "../redux/login/actions";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import Footer from "../components/Footer";
+
 
 const LazyLoadingComp = React.lazy(() => import("../components/TodoList"));
 function Todo() {
   const [tasks, setTasks] = useState([]);
   const [taskText, setTaskText] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
+  const [taskImage, setTaskImage] = useState("");
   const [showAddTask, setShowAddTask] = useState(false);
   const [updatedId, setUpdateId] = useState();
   const [search, setSearch] = useState("All");
@@ -51,13 +53,15 @@ function Todo() {
       setUpdateId(tasks.id);
       setTaskText(tasks.title);
       setTaskDescription(tasks.description);
+      setTaskImage(tasks.image);
     } else {
       setShowAddTask(true);
       setUpdateId("");
       setTaskText("");
       setTaskDescription("");
+      setTaskImage("");
     }
-    // window.scrollTo(0, 0);
+
     if (typeof window !== "undefined") {
       window.scrollTo({
         top: 0,
@@ -68,7 +72,6 @@ function Todo() {
   }
 
   function handleRemoveTask(id) {
-    // Update directly on `tasks`
     const updatedTasks = tasks.filter((task) => task.id !== id);
     setTasks(updatedTasks);
     setShowAddTask(false);
@@ -84,7 +87,7 @@ function Todo() {
     if (updatedId) {
       updatedTasks = tasks.map((task) => {
         if (task.id === updatedId) {
-          return { ...task, title: taskText, description: taskDescription };
+          return { ...task, title: taskText, description: taskDescription, image: taskImage };
         }
         return task;
       });
@@ -96,6 +99,7 @@ function Todo() {
           title: taskText,
           description: taskDescription,
           status: "incompleted",
+          image: taskImage,
         },
       ];
     }
@@ -123,10 +127,10 @@ function Todo() {
             <h1 className="todo-list-heading">{`${search} Recipes`}</h1>
           )}
 
-          <h5 className="todo-list-completed">
+          {/* <h5 className="todo-list-completed">
             {filteredTasks?.filter((task) => task.status === "complete").length}/
             {filteredTasks?.length || 0} completed
-          </h5>
+          </h5> */}
           <div className="todo-list-data">
             <div className="todo-list-column">
               <Suspense
@@ -160,11 +164,18 @@ function Todo() {
                 handelAddTask={handelAddTask}
                 handelCancel={handelCancel}
                 updatedId={updatedId}
+                setTaskImage={setTaskImage}
+                taskImage={taskImage}
               />
             )}
           </div>
         </div>
       </div>
+      <div style={{marginBottom:"0px"}}>
+      <Footer />
+      </div>
+
+
     </div>
   );
 }

@@ -7,7 +7,6 @@ import { login } from "../redux/login/actions";
 function Login() {
   const navigate = useNavigate();
   const authStatus = useSelector((state) => state.auth.isLoggedIn);
-
   const dispatch = useDispatch();
   const emailInputRef = useRef(null);
 
@@ -48,39 +47,23 @@ function Login() {
 
   return (
     <div
-      style={{
-        height: "100vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
+      className="login-container"
     >
       <div
-        style={{
-          width: "512px",
-          height: "533px",
-          border: "1px solid black",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "start",
-        }}
+        className="login-box"
       >
         <div className="left-side">
-          {/* <div>
-            <img className="icon" src={icon} alt="Todo Icon" />
-          </div> */}
           <div>
             <h1 style={{ color: "#FF4F5A" }}>Recipes Menu</h1>
           </div>
         </div>
-        <div style={{ margin: "5px" }}>
+        <div  className="signin-header" >
           <h1>Signin</h1>
         </div>
         {/* Conditionally render error message */}
         {errorMessage && <div style={{ color: "red" }}>{errorMessage}</div>}
         <input
           className="email-input"
-          style={{ padding: "10px", marginTop: "60px", margin: "2px" }}
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -88,7 +71,7 @@ function Login() {
           ref={emailInputRef}
         />
         <input
-          style={{ padding: "10px", margin: "2px" }}
+          className="password-input"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -103,7 +86,7 @@ function Login() {
           onClick={handleBackClick}
           className="back-button"
         >
-          <b>back Page</b>
+          <b>Back Page</b>
         </button>
       </div>
     </div>

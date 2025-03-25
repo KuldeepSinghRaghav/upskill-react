@@ -96,6 +96,106 @@ h4{
 
 .error-message {
   color: red;
-  margin-left: 24px;
+  margin-left: 4px;
   margin-top: 5px
+}
+
+/* Detail.css */
+.detail-card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 800px;
+  width: 90%; /* Slightly less than 100% for better responsiveness */
+  height: 500px; /* Increased height for better content fit */
+  padding: 30px; /* More padding for breathing room */
+  border: none; /* Remove border for a cleaner look */
+  border-radius: 12px; /* Softer, modern corners */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Deeper, more elegant shadow */
+  background-color: #ffffff; /* White background for a crisp look */
+  z-index: 11;
+  overflow-y: auto; /* Scroll only vertically if needed */
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+.detail-card:hover {
+  transform: translate(-50%, -50%) scale(1.02); /* Slight scale-up on hover */
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7); /* Darker overlay for better contrast */
+  z-index: 10;
+  backdrop-filter: blur(3px); /* Subtle blur effect for modern feel (if supported) */
+}
+
+.card-img-top {
+  max-width: 500px;
+  width: 100%;
+  max-height: 220px; /* Slightly taller image area */
+  height: auto;
+  object-fit: contain;
+  margin-top: 0; /* Remove unnecessary margin */
+  border-bottom: 1px solid #f0f0f0; /* Softer divider */
+  border-radius: 8px 8px 0 0; /* Rounded top corners */
+}
+
+.card-body {
+  margin-top: 10px;
+  padding: 20px;
+  max-width: 600px; /* Slightly wider for better readability */
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 220px; /* Adjusted to match layout */
+  overflow-y: auto; /* Scrollable content */
+  scrollbar-width: thin; /* Slim scrollbar for Firefox */
+  scrollbar-color: #aaa #f0f0f0; /* Custom scrollbar colors */
+}
+
+/* Custom scrollbar for Webkit browsers (Chrome, Safari) */
+.card-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.card-body::-webkit-scrollbar-thumb {
+  background-color: #aaa;
+  border-radius: 4px;
+}
+
+.card-body::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+.card-title {
+  font-size: 1.75rem; /* Larger, more prominent title */
+  margin-bottom: 15px;
+  color: #1a1a1a; /* Darker for better contrast */
+  font-family: 'Arial', sans-serif; /* Clean, modern font */
+  font-weight: 600; /* Slightly bold */
+}
+
+.card-text {
+  color: #444; /* Softer black for readability */
+  margin-bottom: 12px;
+  font-size: 1rem; /* Standard size for body text */
+  line-height: 1.5; /* Better line spacing */
+  font-family: 'Arial', sans-serif;
+}
+
+.text-muted {
+  color: #888; /* Slightly lighter gray */
+  font-size: 0.9rem;
+  font-style: italic; /* Subtle italic for distinction */
 }

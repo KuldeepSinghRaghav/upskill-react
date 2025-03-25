@@ -25,7 +25,7 @@ function TodoList({
   }
 
   return (
-    <div>
+    <div style={{display:"flex" , flexDirection:"column" , gap:"15px"}}>
       {filteredTasks?.map((task) => (
         <TodoData
           task={task}

@@ -4,14 +4,15 @@ import Icon from "../../public/icon.svg";
 function Footer() {
   return (
     <div>
-      <div style={{borderTop:'1px solid #e74c3c', marginTop:'172px', width: '1446px'}}></div>
+      <div
+        style={{
+          borderTop: "1px solid #e74c3c",
+          width: "1446px",
+        }}
+      ></div>
       <div className="footer">
-        <div
-          className="footer-content"
-        >
-          <div
-            className="footer-icon-text"
-          >
+        <div className="footer-content">
+          <div className="footer-icon-text">
             <img src={Icon} alt="" />
             <p>
               Discover new recipes <br />
@@ -31,10 +32,11 @@ function Footer() {
 
         <div
           className="footer-links"
+          style={{ display: "flex", flexDirection: "row", textAlign: "left" }}
         >
           <div>
-            <h4 className="footer-heading">Recipes</h4>
             <ul style={{ listStyleType: "none" }}>
+              <h4 className="footer-heading">Recipes</h4>
               <li>Breakfast</li>
               <li>Lunch</li>
               <li>Dinner</li>
@@ -42,8 +44,8 @@ function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="footer-heading">Resources</h4>
             <ul style={{ listStyleType: "none" }}>
+              <h4 className="footer-heading">Resources</h4>
               <li>Cooking Tips</li>
               <li>Nutrition Info</li>
               <li>Chef Interviews</li>
