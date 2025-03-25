@@ -60,6 +60,12 @@
   align-items: center;
 }
 
+.btn:hover {
+  background-color: rgb(252, 60, 73);
+  cursor: pointer;
+}
+
+
 .title {
   width: 571px;
   height: 116px;
@@ -81,6 +87,12 @@
   justify-content: center;
   align-items: center;
 }
+.btnB:hover {
+  background-color: rgb(252, 60, 73);
+  cursor: pointer;
+}
+
+
 h4{
   color: rgba(255, 79, 90, 1);
 }

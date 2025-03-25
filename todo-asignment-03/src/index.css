@@ -276,7 +276,6 @@ hr {
   flex-direction: row;
   justify-content: space-around;
   font-size: 20px;
-  
 }
 
 .image-text-container {
@@ -404,7 +403,7 @@ hr {
 .login-box {
   width: 512px;
   height: 533px;
-  border: 1px solid rgba(0,0,0,0.3);
+  border: none;
   display: flex;
   flex-direction: column;
   justify-content: flex-start; /* Changed from 'start' to 'flex-start' for clarity */
@@ -414,8 +413,8 @@ hr {
 }
 
 .login-box:hover{
-  transition-duration: 0.4s;
-  transform: scale(1.01); /* সামান্য বড় হবে যখন হোভার করা হবে */
+  transform: translateY(-3px);
+  transition-duration: 0.3s;
   box-shadow: 2px 2px 15px 5px rgba(0,0,0,0.3); /* ছায়া আরও স্পষ্ট হবে */
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added transition for smooth animation */
 }
