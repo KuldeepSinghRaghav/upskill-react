@@ -36,6 +36,14 @@ function Login() {
   }
 
   function handleLogin() {
+    if (!email) {
+      setErrorMessage("Email is required!");
+      return;
+    }
+    if (!password) {
+      setErrorMessage("Password is required!");
+      return;
+    }
     if (email === dummyEmail && password === dummyPass) {
       dispatch(login());
       navigate("/todo");

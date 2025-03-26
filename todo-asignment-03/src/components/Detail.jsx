@@ -15,7 +15,7 @@ function Detail({ task, setDetailTab}) {
         <div className="card-body">
           <h5 className="card-title">{task.title}</h5>
           <hr style={{width:'100%'}} />
-          <p className="card-text">{task.description}</p>
+          <p className="card-text" style={{ whiteSpace: 'pre-line' }}>{task.description}</p>
           <p className="card-text">
             <small className="text-muted">ID: {task.id}</small>
           </p>

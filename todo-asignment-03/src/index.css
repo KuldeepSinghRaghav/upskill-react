@@ -281,7 +281,7 @@ hr {
 .image-text-container {
   width: 1031px;
   height: 370px;
-  margin-top: 185px;
+  margin-top: 155px;
   display: flex;
   flex-direction: row;
 }
@@ -373,6 +373,25 @@ hr {
   background-color: #9c2b1e;
 }
 
+.login-box {
+  width: 512px;
+  height: 533px;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Changed from 'start' to 'flex-start' for clarity */
+  box-shadow: 2px 2px 15px 5px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  padding: 20px;
+  animation-name: example;
+  animation-duration: 2s;
+}
+
+@keyframes example {
+  from {background-color: rgb(236, 236, 236);}
+  to {background-color: white;}
+}
+
 .login-button,
 .back-button {
   padding: 10px;
@@ -381,7 +400,15 @@ hr {
   color: white;
   border-radius: 5px;
   border: none;
+  animation-name: buttonAnimation;
+  animation-duration: 2s;
 }
+
+@keyframes buttonAnimation {
+  from {background-color: rgb(257, 64, 75);}
+  to {background-color: rgb(252, 60, 73);}
+}
+
 
 .login-button {
   margin-top: 20px;
@@ -400,20 +427,8 @@ hr {
   align-items: center;
 }
 
-.login-box {
-  width: 512px;
-  height: 533px;
-  border: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; /* Changed from 'start' to 'flex-start' for clarity */
-  box-shadow: 2px 2px 15px 5px rgba(0,0,0,0.3);
-  border-radius: 10px;
-  padding: 20px;
-}
-
 .login-box:hover{
-  transform: translateY(-3px);
+  transform: translateY(-5px);
   transition-duration: 0.3s;
   box-shadow: 2px 2px 15px 5px rgba(0,0,0,0.3); /* ছায়া আরও স্পষ্ট হবে */
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added transition for smooth animation */
