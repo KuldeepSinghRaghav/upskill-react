@@ -77,6 +77,7 @@ function Login() {
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email"
           ref={emailInputRef}
+          style={{outline:"none"}}
         />
         <input
           className="password-input"
@@ -84,6 +85,7 @@ function Login() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
+          style={{outline:"none"}}
         />
         <button
           onClick={handleLogin}

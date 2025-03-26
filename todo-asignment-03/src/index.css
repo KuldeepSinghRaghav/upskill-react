@@ -50,6 +50,8 @@
   flex-direction: column;
   padding: 15px;
   margin-bottom: 0px;
+  position: sticky;
+  top: 0;
 }
 
 .todo-list {
@@ -69,9 +71,7 @@
 }
 
 .todo-list-data {
-  /* border: 2px solid lightgray; */
   width: 1090px;
-  height: 428px;
   overflow: Auto;
 }
 
@@ -161,6 +161,7 @@
   font-weight: 500;
   height: 28px;
   margin-top: 10px;
+  margin-bottom: 10px;
   text-align: center;
   gap: 10px;
   color: #ff4f5a;
@@ -174,6 +175,8 @@ p,
 input,
 button,
 a,
+span,
+label,
 li,
 textarea {
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
@@ -203,7 +206,7 @@ hr {
 }
 
 .add-button {
-  background-color: #e74c3c; /* Red background */
+  background-color: #ff4f5a; /* Red background */
   color: white;
   border: none;
   padding: 8px 24px;
@@ -215,8 +218,8 @@ hr {
 
 .cancel-button {
   background-color: transparent;
-  color: #e74c3c; /* Red text */
-  border: 2px solid #e74c3c; /* Red border */
+  color: #ff4f5a; /* Red text */
+  border: 2px solid #ff4f5a; /* Red border */
   padding: 8px 24px;
   border-radius: 8px;
   font-size: 16px;
@@ -275,7 +278,11 @@ hr {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  font-size: 20px;
+  font-size: 23px;
+}
+.icon-container > div:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
 }
 
 .image-text-container {
@@ -380,7 +387,7 @@ hr {
   display: flex;
   flex-direction: column;
   justify-content: flex-start; /* Changed from 'start' to 'flex-start' for clarity */
-  box-shadow: 2px 2px 15px 5px rgba(0,0,0,0.3);
+  box-shadow: 2px 2px 15px 5px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   padding: 20px;
   animation-name: example;
@@ -388,8 +395,12 @@ hr {
 }
 
 @keyframes example {
-  from {background-color: rgb(236, 236, 236);}
-  to {background-color: white;}
+  from {
+    background-color: rgb(236, 236, 236);
+  }
+  to {
+    background-color: white;
+  }
 }
 
 .login-button,
@@ -405,10 +416,13 @@ hr {
 }
 
 @keyframes buttonAnimation {
-  from {background-color: rgb(257, 64, 75);}
-  to {background-color: rgb(252, 60, 73);}
+  from {
+    background-color: rgb(257, 64, 75);
+  }
+  to {
+    background-color: rgb(252, 60, 73);
+  }
 }
-
 
 .login-button {
   margin-top: 20px;
@@ -427,15 +441,15 @@ hr {
   align-items: center;
 }
 
-.login-box:hover{
+.login-box:hover {
   transform: translateY(-5px);
   transition-duration: 0.3s;
-  box-shadow: 2px 2px 15px 5px rgba(0,0,0,0.3); /* ছায়া আরও স্পষ্ট হবে */
+  box-shadow: 2px 2px 15px 5px rgba(0, 0, 0, 0.3); /* ছায়া আরও স্পষ্ট হবে */
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added transition for smooth animation */
 }
 
 .signin-header {
-    margin: 5px;
+  margin: 5px;
 }
 
 .email-input {
@@ -445,6 +459,6 @@ hr {
 }
 
 .password-input {
-    padding: 10px;
-    margin: 2px;
+  padding: 10px;
+  margin: 2px;
 }

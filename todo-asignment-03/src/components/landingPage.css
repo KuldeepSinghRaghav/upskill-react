@@ -211,3 +211,11 @@ h4{
   font-size: 0.9rem;
   font-style: italic; /* Subtle italic for distinction */
 }
+
+.label-style {
+  padding: "5px 10px";
+  background-color: "black";
+  color: "white";
+  border-radius: "3px";
+  cursor: "pointer";
+}
