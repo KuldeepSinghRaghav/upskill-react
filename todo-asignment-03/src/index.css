@@ -227,6 +227,14 @@ hr {
   cursor: pointer;
 }
 
+.style-button:hover {
+  background-color: #f82836;
+  color: white;
+  border: 2px solid #f82836;
+}
+
+
+
 .completed-radio {
   cursor: pointer;
 }

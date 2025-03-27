@@ -46,10 +46,10 @@ function Footer() {
           <div>
             <ul style={{ listStyleType: "none" }}>
               <h4 className="footer-heading">Resources</h4>
-              <li>Cooking Tips</li>
               <li>Nutrition Info</li>
               <li>Chef Interviews</li>
               <li>FAQ</li>
+              <a href="/images" style={{"textDecoration": "none", "color": "black"}}>Find More</a>
             </ul>
           </div>
         </div>

@@ -11,7 +11,7 @@ function Login() {
   const emailInputRef = useRef(null);
 
   useEffect(() => {
-    if(authStatus){
+    if (authStatus) {
       navigate("/todo");
       return;
     }
@@ -54,22 +54,16 @@ function Login() {
   }
 
   return (
-    <div
-      className="login-container"
-    >
-      <div
-        className="login-box"
-      >
+    <div className="login-container">
+      <div className="login-box">
         <div className="left-side">
           <div>
             <h1 style={{ color: "#FF4F5A" }}>Recipes Menu</h1>
           </div>
         </div>
-        <div  className="signin-header" >
+        <div className="signin-header">
           <h1>Signin</h1>
         </div>
-        {/* Conditionally render error message */}
-        {errorMessage && <div style={{ color: "red" }}>{errorMessage}</div>}
         <input
           className="email-input"
           type="email"
@@ -77,7 +71,7 @@ function Login() {
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email"
           ref={emailInputRef}
-          style={{outline:"none"}}
+          style={{ outline: "none" }}
         />
         <input
           className="password-input"
@@ -85,17 +79,16 @@ function Login() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
-          style={{outline:"none"}}
+          style={{ outline: "none" }}
         />
-        <button
-          onClick={handleLogin}
-          className="login-button">
+        {/* Conditionally render error message */}
+        {errorMessage && (
+          <div style={{ color: "red", marginLeft: "2px" }}>{errorMessage}</div>
+        )}
+        <button onClick={handleLogin} className="login-button">
           <b>Login</b>
         </button>
-        <button
-          onClick={handleBackClick}
-          className="back-button"
-        >
+        <button onClick={handleBackClick} className="back-button">
           <b>Back Page</b>
         </button>
       </div>
