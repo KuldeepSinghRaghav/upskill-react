@@ -233,6 +233,25 @@ hr {
   border: 2px solid #f82836;
 }
 
+.loading-icon {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #ff4f5a;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  z-index: 1000;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 
 
 .completed-radio {

@@ -134,8 +134,9 @@ function Todo() {
             <div className="todo-list-column">
               <Suspense
                 fallback={
-                  <div>
-                    <b>Loading Data...</b>
+                  <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100vh', zIndex: 1000, display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
+                    {/* Replace with your actual loading icon component or JSX */}
+                    <div className="loading-icon"></div>
                   </div>
                 }
               >
