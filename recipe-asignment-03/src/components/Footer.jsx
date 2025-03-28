@@ -49,7 +49,7 @@ function Footer() {
               <li>Nutrition Info</li>
               <li>Chef Interviews</li>
               <li>FAQ</li>
-              <a href="/images" style={{"textDecoration": "none", "color": "black"}}>Find More</a>
+              <a href="/images">Find More</a>
             </ul>
           </div>
         </div>

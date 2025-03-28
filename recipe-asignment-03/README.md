@@ -14,6 +14,8 @@ This project is a recipe application built using React, Vite, and JavaScript. It
 *   **Axios:** For making HTTP requests to fetch recipe data.
 *   **Suspense:** For handling loading states and improving user experience.
 *   **Props:** For passing data between React components.
+*   **React Router DOM:** For routing and page redirection.
+*   **localStorage:** For persisting array data in the browser.
 
 ## Features
 

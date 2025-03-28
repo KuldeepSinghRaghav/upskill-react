@@ -97,6 +97,18 @@ h4{
   color: rgba(255, 79, 90, 1);
 }
 
+
+.footer-links a {
+  text-decoration: none;
+  color: black;
+}
+
+.footer-links a:hover {
+  text-decoration: none;
+  color: rgb(252, 60, 73);
+}
+
+
 .footer {
   width: 1440px;
   height: 258px;
