@@ -12,6 +12,8 @@ This project is a recipe application built using React, Vite, and JavaScript. It
 *   **useEffect:** For handling side effects in functional components.
 *   **useRef:** For directly accessing DOM elements or holding mutable values.
 *   **Axios:** For making HTTP requests to fetch recipe data.
+*   **Suspense:** For handling loading states and improving user experience.
+*   **Props:** For passing data between React components.
 
 ## Features
 
