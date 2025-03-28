@@ -4,7 +4,7 @@ import Event from "../../public/event.svg";
 import Note from "../../public/note.svg";
 import Task from "../../public/task.svg";
 import Work from "../../public/work.svg";
-import Image from "../../public/image1.png";
+import Image from "../images/cookinglady.jpg";
 import { Link } from 'react-router-dom'
 
 function Content() {
