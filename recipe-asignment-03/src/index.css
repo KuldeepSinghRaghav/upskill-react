@@ -232,9 +232,9 @@ hr {
 }
 
 .style-button:hover {
-  background-color: #f82836;
+  background-color: #ff4f5a;
   color: white;
-  border: 2px solid #f82836;
+  border: 2px solid #ff4f5a;
 }
 
 .loading-icon {

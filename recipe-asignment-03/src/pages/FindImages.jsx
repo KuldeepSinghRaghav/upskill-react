@@ -28,7 +28,6 @@ function FindImages() {
       <div style={{display:'flex',  alignItems:'center', flexDirection:'column', gap:'20px', height:'100vh', width:'100%', overflow: 'auto'}}>
         <h1>Find Random Recipe</h1>
         <button class="cancel-button style-button" onClick={fetchRecipe}>Find Recipe</button>
-        <button onClick={backPage} class="cancel-button style-button">Back</button>
 
         {recipe && (
           <div style={{ display: "flex", flexDirection: "column", gap: "10px", justifyContent:'center', alignItems:'center' }}>
@@ -54,6 +53,7 @@ function FindImages() {
             <p>Difficulty: {recipe.difficulty}</p>
           </div>
         )}
+        <button onClick={backPage} class="cancel-button style-button" style={{marginBottom:'20px'}}>Back</button>
       </div>
       <Footer />
     </div>
