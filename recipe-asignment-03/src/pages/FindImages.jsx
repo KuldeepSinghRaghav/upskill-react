@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Footer from "../components/Footer";
 import axios from "axios";
+import TodoHeader from "../components/TodoHeader";
 
 function FindImages() {
   const [recipe, setRecipe] = useState(null);
@@ -23,12 +24,7 @@ function FindImages() {
 
   return (
     <div>
-      <header className="todo-header">
-        <div className="todo-header-left">
-          <h1 style={{ marginLeft: "10px" }}>Recipes Menu</h1>
-        </div>
-        <div></div>
-      </header>
+      <TodoHeader />
       <div style={{display:'flex',  alignItems:'center', flexDirection:'column', gap:'20px', height:'100vh', width:'100%', overflow: 'auto'}}>
         <h1>Find Random Recipe</h1>
         <button class="cancel-button style-button" onClick={fetchRecipe}>Find Recipe</button>
@@ -40,7 +36,7 @@ function FindImages() {
             <img
               src={recipe.image}
               alt={recipe.name}
-              style={{ maxWidth: "300px" }}
+              style={{ maxWidth: "300px", borderRadius: '8px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}
             />
             <h3>Ingredients:</h3>
             <ul>

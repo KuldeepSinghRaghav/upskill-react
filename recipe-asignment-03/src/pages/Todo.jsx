@@ -7,6 +7,7 @@ import { logout } from "../redux/login/actions";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
+import TodoHeader from "../components/TodoHeader";
 
 
 const LazyLoadingComp = React.lazy(() => import("../components/TodoList"));
@@ -116,17 +117,7 @@ function Todo() {
 
   return (
     <div>
-      <header className="todo-header">
-        <div className="todo-header-left">
-          {/* <img className="icon" src={icon} alt="Todo Icon" /> */}
-          <h1 style={{ marginLeft: "10px" }}>Recipes Menu</h1>
-        </div>
-        <div>
-          <button className="logout-button" onClick={logoutUser}>
-            Logout
-          </button>
-        </div>
-      </header>
+      <TodoHeader logoutUser= {logoutUser}/>
       <div className="todo-container">
         <SideBar setSearch={setSearch} />
         <div className="todo-list">

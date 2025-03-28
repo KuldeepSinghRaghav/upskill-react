@@ -47,7 +47,7 @@ function Login() {
     if (email === dummyEmail && password === dummyPass) {
       dispatch(login());
       navigate("/todo");
-      localStorage.setItem("isLoggedIn", loginStatus);
+      // localStorage.setItem("isLoggedIn", loginStatus);
     } else {
       setErrorMessage(" Login Creds are not correct !");
     }
