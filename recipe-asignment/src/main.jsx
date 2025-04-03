@@ -14,14 +14,17 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
       {/* //! React Router */}
+      {/* Setting up the browser router to handle navigation */}
       <BrowserRouter>
         <Routes>
+          {/* Define routes for different pages */}
           <Route path="/" element={<Landing />} />
           <Route path="/login" element={<Login />} />
           <Route path="/todo" element={<Todo />} />
           <Route path="/images" element={<FindImages />} />
         </Routes>
       </BrowserRouter>
+      {/* End of React Router setup */}
     </Provider>
   </React.StrictMode>
 );
