@@ -1,10 +1,11 @@
+//!  controlled component: This is a controlled component because it manages the input states (email, password) using React's useState hook.
 import React, { useState, useEffect, useRef } from "react";
-import icon from "../../public/icon.svg";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { login } from "../redux/login/actions";
 
 function Login() {
+  //! hooks:
   const navigate = useNavigate();
   const authStatus = useSelector((state) => state.auth.isLoggedIn);
   const dispatch = useDispatch();
@@ -85,6 +86,7 @@ function Login() {
         {errorMessage && (
           <div style={{ color: "red", marginLeft: "2px" }}>{errorMessage}</div>
         )}
+        {/* //!Event Handling */}
         <button onClick={handleLogin} className="login-button">
           <b>Login</b>
         </button>

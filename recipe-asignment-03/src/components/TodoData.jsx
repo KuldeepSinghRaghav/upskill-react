@@ -40,13 +40,8 @@ function TodoData({
   return (
     <>
       <div className="todo-list-row" ref={todoItemRef}>
-        {/* <input
-          type="radio"
-          checked={task.status === "complete"}
-          disabled={task.status === "complete"}
-          onChange={() => UpdateStatus(task.id)}
-          className={task.status === "complete" ? "completed-radio" : ""}
-        /> */}
+        {/* //!key:
+        The 'key' prop is essential for React to efficiently update and re-render list items. It should be unique and stable, and in this case, we are using the task's id. The 'todo-item' class is for styling this specific todo item. */}
         <div className="todo-item" key={task.id}>
           <div>
             <div className="todo-item-text">
