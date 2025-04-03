@@ -1,7 +1,13 @@
+//! uncontrolled component: This is an uncontrolled component as it does not manage any form input states.
 import React, { useState } from "react";
 import Footer from "../components/Footer";
 import axios from "axios";
 import TodoHeader from "../components/TodoHeader";
+
+// Memoizing FindImages component as it's a pure component and to prevent unnecessary re-renders if parent component re-renders.
+const MemoizedFindImages = React.memo(FindImages);
+// Memoizing Footer component as it's likely a pure component and doesn't receive props, so it will always render the same output.
+const MemoizedFooter = React.memo(Footer);
 
 function FindImages() {
   const [recipe, setRecipe] = useState(null);
@@ -55,9 +61,10 @@ function FindImages() {
         )}
         <button onClick={backPage} class="cancel-button style-button" style={{marginBottom:'20px'}}>Back</button>
       </div>
-      <Footer />
+      <MemoizedFooter />
     </div>
   );
 }
 
-export default FindImages;
+// Exporting the memoized component instead of the original FindImages component.
+export default MemoizedFindImages;

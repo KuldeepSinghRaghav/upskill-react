@@ -5,7 +5,8 @@ import Footer from './Footer'
 
 function Landing() {
   return (
-    <>
+    //! Fragment
+    <> 
     <Header />
     <Content />
     <Footer />

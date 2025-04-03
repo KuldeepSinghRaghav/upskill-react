@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 
-// TodoTextBox component for inputting task details (title, description, image)
 function TodoTextBox({
   setTaskText,
   taskText,
@@ -15,7 +14,7 @@ function TodoTextBox({
   // useRef hook to get a reference to the file input element
   const fileInputRef = useRef(null);
 
-  // Function to handle changes in input fields
+  //! Handling multiple form inputs :
   function handleChange(e) {
     if (e.target.name === "name") {
       setTaskText(e.target.value); // Update task title state

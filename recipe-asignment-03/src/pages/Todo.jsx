@@ -1,3 +1,4 @@
+//! controlled component: This component is part of a controlled component pattern as it manages state (taskText, taskDescription, taskImage) that controls inputs in child components like TodoTextBox.
 import React, { useEffect, useState } from "react";
 import AddTask from "../../public/add.svg";
 import { Suspense } from "react";
@@ -9,13 +10,24 @@ import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import TodoHeader from "../components/TodoHeader";
 
-
 const LazyLoadingComp = React.lazy(() => import("../components/TodoList"));
+//! memoization
+// Memoizing TodoHeader as it's a pure component and its props (logoutUser) are stable.
+const MemoizedTodoHeader = React.memo(TodoHeader);
+// Memoizing SideBar as it's a pure component and its props (setSearch) are stable.
+const MemoizedSideBar = React.memo(SideBar);
+// Memoizing TodoTextBox as it's a pure component and its props might not change frequently, or when they do, re-rendering might be expensive.
+const MemoizedTodoTextBox = React.memo(TodoTextBox);
+// Memoizing Footer as it's likely a pure component and doesn't receive props, so it will always render the same output.
+const MemoizedFooter = React.memo(Footer);
 function Todo() {
   const [tasks, setTasks] = useState(() => {
-    const storedTasks = localStorage.getItem('todo-tasks');
+    //! local storage:
+    //local storage: Initialize tasks state. Load tasks from local storage if available, otherwise start with an empty array.
+    const storedTasks = localStorage.getItem("todo-tasks");
     return storedTasks ? JSON.parse(storedTasks) : [];
   });
+  //! State and setState:
   const [taskText, setTaskText] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
   const [taskImage, setTaskImage] = useState("");
@@ -41,19 +53,23 @@ function Todo() {
 
     // Filter tasks based on the search term
     setFilteredTasks(
-      search === "All" ? tasks : tasks.filter((task) => task.title.toLowerCase().includes(search.toLowerCase()))
+      search === "All"
+        ? tasks
+        : tasks.filter((task) =>
+            task.title.toLowerCase().includes(search.toLowerCase())
+          )
     );
   }, [authStatus, navigate, tasks, search]);
 
   useEffect(() => {
-    localStorage.setItem('todo-tasks', JSON.stringify(tasks));
+    localStorage.setItem("todo-tasks", JSON.stringify(tasks));
   }, [tasks]);
 
   function logoutUser() {
     navigate("/login");
     dispatch(logout());
     localStorage.removeItem("isLoggedIn");
-    localStorage.removeItem('todo-tasks');
+    localStorage.removeItem("todo-tasks");
   }
 
   function handleAddTaskClick(tasks) {
@@ -96,7 +112,12 @@ function Todo() {
     if (updatedId) {
       updatedTasks = tasks.map((task) => {
         if (task.id === updatedId) {
-          return { ...task, title: taskText, description: taskDescription, image: taskImage };
+          return {
+            ...task,
+            title: taskText,
+            description: taskDescription,
+            image: taskImage,
+          };
         }
         return task;
       });
@@ -117,9 +138,13 @@ function Todo() {
 
   return (
     <div>
-      <TodoHeader logoutUser= {logoutUser}/>
+      {/* Using MemoizedTodoHeader instead of TodoHeader */}
+      {/* //! component with props: */}
+      <MemoizedTodoHeader logoutUser={logoutUser} />
+      {/* //! Style implementation  */}
       <div className="todo-container">
-        <SideBar setSearch={setSearch} />
+        {/* Using MemoizedSideBar instead of SideBar */}
+        <MemoizedSideBar setSearch={setSearch} />
         <div className="todo-list">
           {/* <h1 className="todo-list-heading">Menu</h1> */}
           {search && (
@@ -130,16 +155,31 @@ function Todo() {
             {filteredTasks?.filter((task) => task.status === "complete").length}/
             {filteredTasks?.length || 0} completed
           </h5> */}
+          {/* //! LazyLoading & Suspense: */}
           <div className="todo-list-data">
             <div className="todo-list-column">
               <Suspense
                 fallback={
-                  <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100vh', zIndex: 1000, display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
+                  <div
+                    style={{
+                      position: "fixed",
+                      top: 0,
+                      left: 0,
+                      width: "100%",
+                      height: "100vh",
+                      zIndex: 1000,
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      backgroundColor: "rgba(0, 0, 0, 0.5)",
+                    }}
+                  >
                     {/* Replace with your actual loading icon component or JSX */}
                     <div className="loading-icon"></div>
                   </div>
                 }
               >
+                {/* LazyLoadingComp (TodoList) is already lazy-loaded, memoizing it can further optimize re-renders if props don't change frequently. */}
                 <LazyLoadingComp
                   tasks={tasks}
                   setTasks={setTasks}
@@ -154,9 +194,10 @@ function Todo() {
               <img src={AddTask} alt="AddTask Icon" />
               <p>Add Recipe</p>
             </div>
-
+            {/* //!Conditional Rendering */}
             {showAddTask && (
-              <TodoTextBox
+              // Using MemoizedTodoTextBox instead of TodoTextBox
+              <MemoizedTodoTextBox
                 taskText={taskText}
                 setTaskText={setTaskText}
                 taskDescription={taskDescription}
@@ -171,11 +212,10 @@ function Todo() {
           </div>
         </div>
       </div>
-      <div style={{marginBottom:"0px"}}>
-      <Footer />
+      <div style={{ marginBottom: "0px" }}>
+        {/* Using MemoizedFooter instead of Footer */}
+        <MemoizedFooter />
       </div>
-
-
     </div>
   );
 }

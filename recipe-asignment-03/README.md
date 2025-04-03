@@ -7,7 +7,6 @@ This project is a recipe application built using React, Vite, and JavaScript. It
 *   **React:** A JavaScript library for building user interfaces.
 *   **Vite:** A fast build tool and development server for modern web projects.
 *   **JavaScript:** The primary programming language for web development.
-*   **Redux:** For state management (login authentication).
 *   **useState:** For managing state within functional components.
 *   **useEffect:** For handling side effects in functional components.
 *   **useRef:** For directly accessing DOM elements or holding mutable values.
@@ -16,6 +15,14 @@ This project is a recipe application built using React, Vite, and JavaScript. It
 *   **Props:** For passing data between React components.
 *   **React Router DOM:** For routing and page redirection.
 *   **localStorage:** For persisting array data in the browser.
+*   **Components**: For building reusable UI elements.
+*   **Event Handling**: To manage user interactions.
+*   **Conditional Rendering**: For rendering different content based on conditions.
+*   **Refs**: For accessing DOM elements directly.
+*   **Keys**: For uniquely identifying list items.
+*   **Styled components**: For styling React components with CSS-in-JS.
+*   **Memoization**: For optimizing performance by caching function results.
+*   **Redux:** For state management (login authentication).
 
 ## Features
 
